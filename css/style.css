@@ -227,3 +227,13 @@ a.card .card-media > img { cursor: pointer; }
 #film .button { margin-top: 44px; }
 .contact .lead { margin-bottom: 0; }
 .mail-btn { background: none; color: var(--ink); font-family: var(--mono); cursor: pointer; margin-top: 28px; }
+
+/* Showreel bovenaan */
+.reel { max-width: 1080px; margin: -120px auto 0; position: relative; z-index: 2; padding: 0 clamp(20px, 4vw, 48px); text-align: center; }
+.reel-video .yt { box-shadow: 0 30px 80px rgba(0,0,0,.6); border: 1px solid var(--line); }
+.reel-video .yt-title { text-align: left; letter-spacing: .24em; text-transform: uppercase; }
+.proof { margin: 30px 0 0; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 6px 0; font-size: 12.5px; letter-spacing: .12em; color: var(--muted); text-transform: uppercase; }
+.proof strong { color: var(--ink); font-weight: 500; margin-right: 18px; }
+.proof span span:not(:last-child)::after { content: '·'; margin: 0 12px; color: rgba(163,152,148,.5); }
+.reel .button { margin-top: 30px; }
+@media (max-width: 560px) { .reel { margin-top: -60px; } .proof strong { flex-basis: 100%; margin: 0 0 6px; } }

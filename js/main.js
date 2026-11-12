@@ -33,14 +33,10 @@
       <span class="yt-title">${esc(v.title)}</span>
     </button>`;
 
-  // Highlights
-  $('[data-highlights]').innerHTML = SITE.highlights.map(h => `
-    <a class="hl" href="${h.url}"${ext(h.url)}>
-      <span class="hl-big">${esc(h.big)}</span>
-      <span class="hl-label">${esc(h.label)}</span>
-      <strong>${esc(h.title)}</strong>
-      <span class="hl-text">${esc(h.text)}</span>
-    </a>`).join('');
+  // Showreel bovenaan
+  $('[data-reel]').innerHTML = ytCard(SITE.reel, true);
+  $('[data-stat]').textContent = SITE.stat;
+  $('[data-names]').innerHTML = SITE.names.map(n => `<span>${esc(n)}</span>`).join('');
 
   // Kaart voor film en podium
   const card = it => {

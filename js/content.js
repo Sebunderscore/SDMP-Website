@@ -14,13 +14,10 @@ const SITE = {
   heroImage: 'img/hero-studio.jpg',
   portrait: 'img/portrait.jpg',
 
-  // De blikvangers bovenaan de site
-  highlights: [
-    { big: '80M+', label: 'streams', title: 'Out of Touch', text: 'CUT_ single featured in Netflix’s Élite. Reached #1 on the global Shazam chart.', url: 'https://youtu.be/9NQh9ovnDe0', img: 'img/film-elite.jpg' },
-    { big: 'Sadler’s Wells', label: 'London', title: 'Blind to the Depths', text: 'Original score for a full-length contemporary dance piece.', url: '#stage' },
-    { big: '1.5 h', label: 'live score', title: 'The Witch’s Mark', text: 'Multidisciplinary show with dance, shibari and live music. Door Open Space, Amsterdam.', url: '#stage' },
-    { big: '15', label: 'shows', title: 'The Ritual', text: 'Multisensory CUT_ show touring Europe, incl. Sziget and Colors of Ostrava.', url: '#stage', img: 'img/stage-the-ritual.jpg' }
-  ],
+  // Bovenaan de site: showreel + één regel met namen
+  reel: { yt: 'a45DMk4CSk4', title: 'Showreel' },
+  stat: '80M+ streams on Out of Touch',
+  names: ['Netflix', 'Sadler’s Wells', 'Nederlands Dans Theater', 'Sziget', 'Sparkasse', 'UBS'],
 
   about: [
     'I’m Seb, a composer, producer and sound designer based in Amsterdam. Since 2014 I have made music with Belle Doron as the electronic duo <a href="http://cutunderscore.com/" target="_blank" rel="noopener">CUT_</a>: two albums on [PIAS], two self-released ones, tours through Europe and Mexico, and a song in Netflix’s Élite that has now passed 80 million streams.',
