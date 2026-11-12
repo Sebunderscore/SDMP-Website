@@ -45,7 +45,7 @@
   // Kaart voor film en podium
   const card = it => {
     const media = it.yt ? ytCard({ yt: it.yt, title: it.title })
-      : it.img ? `<img src="${it.img}" alt="${esc(it.title)}" loading="lazy">`
+      : it.img ? `<img src="${it.img}" alt="${esc(it.title)}" loading="lazy"${it.pos ? ` style="object-position:${it.pos}"` : ''}>`
       : textArt(it.title, it.year);
     const body = `
       <div class="card-media">${media}</div>
