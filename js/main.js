@@ -17,7 +17,7 @@
   $('[data-year]').textContent = new Date().getFullYear();
   $$('[data-socials]').forEach(el => {
     el.innerHTML = `
-      <a href="mailto:${SITE.email}" aria-label="Email">${icons.mail}</a>
+      <a href="#contact" data-mail-icon aria-label="Email">${icons.mail}</a>
       <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icons.instagram}</a>
       <a href="${SITE.spotify}" target="_blank" rel="noopener" aria-label="Spotify">${icons.spotify}</a>`;
   });
@@ -141,8 +141,9 @@
   // About & contact
   $('[data-portrait]').src = SITE.portrait;
   $('[data-about]').innerHTML = SITE.about.map(p => `<p>${p}</p>`).join('');
-  const mail = $('[data-mail]');
-  mail.href = 'mailto:' + SITE.email; mail.textContent = SITE.email;
+  // E-mailadres staat nergens als tekst of link in de pagina; het wordt pas bij een klik samengesteld (minder spam).
+  const openMail = e => { e.preventDefault(); location.href = 'mailto:' + SITE.email.join('@'); };
+  $$('[data-mail], [data-mail-icon]').forEach(el => el.addEventListener('click', openMail));
   $('[data-address]').innerHTML = SITE.address.map(esc).join('<br>');
 
   // Mobiel menu

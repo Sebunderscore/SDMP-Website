@@ -7,7 +7,7 @@ const SITE = {
   name: 'Sebastiaan Dutilh',
   tagline: 'Composer & producer for film, stage and brands',
   motto: 'Pushing buttons since 1988',
-  email: 'sebastiaandutilh@gmail.com',
+  email: ['sebastiaandutilh', 'gmail.com'], // in twee delen, zodat spam-bots het niet oppikken
   instagram: 'https://instagram.com/insebtion_',
   spotify: 'https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F',
   address: ['Sebastiaan Dutilh Music Production', 'Palmgracht 74D', '1015 HN Amsterdam'],

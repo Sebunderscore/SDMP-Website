@@ -225,3 +225,5 @@ a.card .card-media > img { cursor: pointer; }
 .card-body p.credit { margin-top: 10px; font-size: 10.5px; color: rgba(163,152,148,.7); letter-spacing: .04em; }
 #film .lead { margin-top: -26px; }
 #film .button { margin-top: 44px; }
+.contact .lead { margin-bottom: 0; }
+.mail-btn { background: none; color: var(--ink); font-family: var(--mono); cursor: pointer; margin-top: 28px; }
