@@ -168,6 +168,6 @@
   $$('main > section').forEach(s => spy.observe(s));
 
   const bar = $('.topbar');
-  const onScroll = () => bar.classList.toggle('solid', window.scrollY > window.innerHeight * 0.6);
+  const onScroll = () => bar.classList.toggle('solid', window.scrollY > 120);
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 })();
