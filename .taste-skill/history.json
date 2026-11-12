@@ -1,0 +1,25 @@
+{
+ "palettes": [
+  "rose-grey-green"
+ ],
+ "types": [
+  "source-serif"
+ ],
+ "dealt": [
+  "source-serif",
+  "schibsted",
+  "newsreader"
+ ],
+ "moments": [
+  {
+   "id": "pinned-chapters",
+   "at": "2026-11-12T13:05:26.450Z",
+   "seed": "0a9680fb"
+  },
+  {
+   "id": "word-highlight",
+   "at": "2026-11-12T13:05:26.450Z",
+   "seed": "0a9680fb"
+  }
+ ]
+}

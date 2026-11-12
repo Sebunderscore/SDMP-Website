@@ -1,0 +1,17 @@
+[
+ {
+  "check": "assets",
+  "target": "fonts.googleapis.com",
+  "reason": "the build sandbox blocks Google Fonts (ERR_BLOCKED_BY_ORB); the live Cloudflare site loads them, checked in a real browser"
+ },
+ {
+  "check": "copy-headings",
+  "target": "De Wilde Stad",
+  "reason": "card titles are the real names of films, series and dance productions from the client's portfolio; a name is the thing itself"
+ },
+ {
+  "check": "off-grid",
+  "target": "div.span-4.stack-4 > a.nav__logo",
+  "reason": "the kit's own initial mark: the letter tile sits on the margin and the name starts after it, as starter.html builds the footer logo"
+ }
+]

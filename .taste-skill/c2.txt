@@ -1,0 +1,177 @@
+consistency  /home/claude/sdmp-website/index.html
+--quick: not checked: scroll-linked (stepping), scroll-reveal (the reveal walk; IntersectionObserver reveals are read), hover-spill, hidden-visual, loop-pause, forms, reduced-motion, the dead-IntersectionObserver walk (hidden content is read with scripts off and under reduced motion), hover-move. Still told: IntersectionObserver reveals (scroll-reveal), held sections (pinned) and CSS scroll timelines (scroll-linked); faults inside held or [data-big-scene] sections are WARNs
+
+1440x900  13 screens, 1 held section  5 FAIL  18 WARN
+  FAIL assets          (the page)
+       the stylesheet https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Libre+Franklin:wght@400..600&display=swap did not load (ERR_BLOCKED_BY_ORB): everything here was measured without it
+       fix: fix the path, or remove the reference
+  FAIL card-layout     section#film > div.wrap > div.grid  "De Wilde Stad Original score for a natur"
+       4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card  [1440-08-card-layout.jpg]
+       fix: a card layout at most twice on a page: build the other sections another way
+  FAIL card-layout     section#dance > div.wrap > div.grid  "Switch, NDT Zuiderstrandtheater, The Hag"
+       4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card  [1440-13-card-layout.jpg]
+       fix: a card layout at most twice on a page: build the other sections another way
+  FAIL copy-headings   div.grid > a.tile.tile--portrait:nth-of-type(1) > div.tile__head > h3  "De Wilde Stad"
+       "De Wilde Stad" names no product, part, place or section (7 headings like it; at most one brand line per page) (and 6 more like it: "Élite, Netflix", "Anne+", "Switch, NDT", "Switch: On the Move", ...)  [1440-09-copy-headings.jpg]
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  FAIL off-grid        div.closing__links > div.grid > div.span-4.stack-4 > a.nav__logo  "S Sebastiaan Dutilh"
+       left edge at 103.5px, 23.5px off the page margin at 80px (41 elements, like span.mark.mark--initial)  [1440-17-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  WARN scroll-reveal   section#studio > div.wrap > p.mo-wh__text  "I write on a modular synthesizer I built"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1440-14-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN scroll-reveal   section#stage  "Live scores for dance and theatre The Wi"
+       starts "border-left-color" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [1440-11-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN pinned          section#stage > div.wrap.mo-pc__grid  "Live scores for dance and theatre The Wi"
+       held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)  [1440-19-pinned.jpg]
+       fix: let the section scroll with the page
+  WARN cta             section#stage  "Live scores for dance and theatre"
+       a section over 1.5 screens long with no link or button in it  [1440-12-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN section-gaps    main#top > section.hero.hero--split / section#reel
+       183px between these sections, -39% against the median 298px  [1440-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#film / section#stage
+       389px between these sections, +31% against the median 298px  [1440-10-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#records / section#about
+       uneven space at the edge of a band: 119px outside its edge, 203px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1440-16-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN links           header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "Email Sebastiaan"
+       "Email Sebastiaan" goes to #contact, in the footer  [1440-01-links.jpg]
+       fix: point every link at a real section, page or file
+  WARN links           div.hero-text.grid > div.hero__text.span-5 > div.btn-row > a.btn.btn--primary  "Email Sebastiaan"
+       "Email Sebastiaan" goes to #contact, in the footer  [1440-02-links.jpg]
+       fix: point every link at a real section, page or file
+  WARN links           footer#contact > div.wrap > div.closing__cta.close--type > a.btn.btn--primary  "Email Sebastiaan"
+       "Email Sebastiaan" goes to #contact, the block it already sits in  [1440-18-links.jpg]
+       fix: point every link at a real section, page or file
+  WARN photo-set       div.wrap > div.wall > a:nth-of-type(6) > img  "rel-belako-sirene.jpg"
+       21 photographs in more than one look: lightness from 0.07 to 0.92; saturation from 0.01 to 0.96; warm and cool photographs mixed (b* -10 to +69); the odd one out is rel-belako-sirene.jpg  [1440-15-photo-set.jpg]
+       fix: grade the photographs to one look (light, colour, warmth), or replace the odd one out
+  WARN nav-labels      div.wrap.nav__bar > nav.nav__links > div.nav__item:nth-of-type(2) > a.nav__link  "Stage"
+       "Stage" opens a section headed "Live scores for dance and theatre"  [1440-03-nav-labels.jpg]
+       fix: name each nav link after the heading of the section it opens
+  WARN nav-labels      header.nav.nav--split > div.wrap.nav__bar > a.nav__logo  "S Sebastiaan Dutilh"
+       "S Sebastiaan Dutilh" opens a section headed "Film and stage composer in Amsterdam"  [1440-04-nav-labels.jpg]
+       fix: name each nav link after the heading of the section it opens
+  WARN nav-current     header.nav.nav--split
+       the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)  [1440-07-nav-current.jpg]
+       fix: mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls
+  WARN font-load       h1#hero-h  "Source Serif 4"
+       "Source Serif 4" is asked for by --font-display, the h1 and the h2s but never loaded (no font link or @font-face loads it): it shows in its fallback  [1440-05-font-load.jpg]
+       fix: load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads
+  WARN font-load       body  "Libre Franklin"
+       "Libre Franklin" is asked for by --font-text and the body text but never loaded (no font link or @font-face loads it): it shows in its fallback
+       fix: load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads
+  WARN action-repeat   header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary  "email sebastiaan"
+       "email sebastiaan" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it  [1440-20-action-repeat.jpg]
+       fix: show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once
+  WARN container-edges div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1)  "The Witch’s Mark, 2025 A 1.5-hour score "
+       3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also "Blind to the Depths, 2023 A full", "The Ritual, 2024 A CUT_ show wit") (it is in a scroll scene: told as a WARN) (SR-6)  [1440-rhythm-01-container-edges.jpg]
+       fix: start the text on the container's left, or on the one split line every split shares
+
+390x844  13 screens  7 FAIL  6 WARN
+  FAIL nav             header.nav.nav--split
+       the nav has no bar, and its pieces sit past the content's edges (33-378px against 24-366px)  [390-01-nav.jpg]
+       fix: make the nav one bar from the content's left edge to its right edge, with every link and action inside it
+  FAIL no-visual       section#records  "Records. Four albums as CUT_, remixes an"
+       no picture, effect or mock in this section; a feature section needs a visual  [390-09-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL card-layout     section#film > div.wrap > div.grid  "De Wilde Stad Original score for a natur"
+       4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card  [390-04-card-layout.jpg]
+       fix: a card layout at most twice on a page: build the other sections another way
+  FAIL card-layout     section#dance > div.wrap > div.grid  "Switch, NDT Zuiderstrandtheater, The Hag"
+       4 of 4 cards drawn one way (one panel, ground, placement and fragment): copies of one card  [390-07-card-layout.jpg]
+       fix: a card layout at most twice on a page: build the other sections another way
+  FAIL off-grid        div.closing__links > div.grid > div.span-4.stack-4 > a.nav__logo  "S Sebastiaan Dutilh"
+       left edge at 42.5px, 18.5px off the page margin at 24px (60 elements, like span.mark.mark--initial)  [390-13-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL section-gaps    section#reel / section#film
+       250px between these sections, +74% against the median 144px  [390-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  FAIL section-gaps    section#about / footer#contact
+       248px between these sections, +69% against the median 147px of gaps at a change of ground  [390-11-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN scroll-reveal   section#studio > div.wrap > p.mo-wh__text  "I write on a modular synthesizer I built"
+       starts "color" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)  [390-08-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  WARN section-gaps    section#records / section#about
+       188px between these sections, +28% against the median 147px of gaps at a change of ground  [390-10-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#about / footer#contact
+       uneven space at the edge of a band: 152px outside its edge, 96px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [390-12-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN proximity       section#film > div.wrap > div.grid  "De Wilde Stad Original score for a natur"
+       the rows sit 12px apart, about as close as a picture to its own caption (16px): a caption reads with the row below (and 1 more like it: "Switch, NDT Zuiderstrand")  [390-05-proximity.jpg]
+       fix: set the gap between rows at twice the gap between a picture and its caption or more
+  WARN photo-set       div.wrap > figure.reel__frame.fit-screen > a.reel__poster > img  "yt-showreel.jpg"
+       14 photographs in more than one look: lightness from 0.08 to 0.76; saturation from 0.00 to 0.70; the odd one out is yt-showreel.jpg  [390-02-photo-set.jpg]
+       fix: grade the photographs to one look (light, colour, warmth), or replace the odd one out
+  WARN photo-weight    ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1) > figure.mo-pc__visual > img  "rel-dancing-with-the-devil.jpg"
+       4 photographs are 3x or more wider than drawn on the phone, with no srcset: rel-dancing-with-the-devil.jpg is 1200px (459 KB) for a 316px frame; on a phone it arrives late and its frame shows only its ground until then  [390-06-photo-weight.jpg]
+       fix: give each photograph srcset and sizes (a 800px and a 1600px file), or a smaller file: the frame never shows empty
+
+first screen at 1280, 1152, 1024, 896, 768  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  2 FAIL
+  FAIL off-viewport    [320] header.nav.nav--split > div.wrap.nav__bar > div.nav__actions  "Email Sebastiaan"
+       at 320px wide it runs 19px past the screen's right edge (cut there: the page clips what runs past it)  [narrow-320-01-off-viewport.jpg]
+       fix: keep it inside the screen at this width: let it shrink, wrap or stack
+  FAIL off-viewport    [320] header.nav.nav--split > div.wrap.nav__bar > button.nav__toggle
+       at 320px wide it runs 71px past the screen's right edge (cut there: the page clips what runs past it)  [narrow-320-02-off-viewport.jpg]
+       fix: keep it inside the screen at this width: let it shrink, wrap or stack
+
+checks
+  FAIL assets                 PASS shader-lint            PASS gl-fallback            
+  PASS empty-visual           PASS hero-fill              PASS flush                  
+  PASS placeholder            PASS sample-label           PASS caption                
+  PASS credit-wall            FAIL nav                    PASS nav-covers             
+  PASS spill                  FAIL off-viewport           PASS fold-card              
+  SKIP hover-spill            PASS overlap-text           PASS collide                
+  PASS tap-size               PASS row-gap                PASS cut-text               
+  PASS fold-cut               PASS marquee                SKIP scroll-linked          
+  WARN scroll-reveal          WARN pinned                 SKIP loop-pause             
+  SKIP reduced-motion         PASS hidden-content         PASS webgl                  
+  FAIL no-visual              PASS text-only              PASS card-visual            
+  SKIP hidden-visual          PASS card-family            FAIL card-layout            
+  PASS nesting                PASS effect-repeat          PASS ui-fit                 
+  PASS ui-centre              PASS dark-ground            PASS button-styles          
+  PASS button-shape           PASS same-action            PASS button-picture         
+  WARN cta                    PASS pricing-tiers          PASS copy-headline          
+  PASS copy-fact              FAIL copy-headings          PASS copy-buttons           
+  PASS copy-actions           PASS heading-scale          PASS stagger                
+  PASS top-stagger            FAIL off-grid               PASS col-edge               
+  PASS right-edge             PASS centre-axis            PASS tilt                   
+  PASS contrast               PASS text-contrast          PASS body-size              
+  PASS busy-ground            FAIL section-gaps           WARN proximity              
+  PASS hole                   WARN links                  SKIP forms                  
+  PASS photo-upscale          WARN photo-set              PASS photo-credit           
+  PASS nav-family             WARN nav-labels             PASS link-styles            
+  PASS heading-align          PASS label-centre           PASS fake-button            
+  PASS stranded-action        PASS orphan                 PASS unit-break             
+  PASS tab-wrap               PASS effects-fit            PASS fade-cut               
+  WARN photo-weight           PASS copy-length            WARN nav-current            
+  PASS progress-bar           PASS photo-repeat           PASS button-contrast        
+  PASS photo-print            PASS grounds                PASS split-align            
+  PASS fact-agree             PASS fold-action            PASS action-count           
+  PASS one-screen             SKIP hover                  SKIP hover-move             
+  PASS product-shown          PASS same-object            WARN font-load              
+  PASS visual-caption         PASS visual-empty           PASS effect-kind            
+  PASS hero-enter             PASS moment-none            PASS street-number          
+  PASS postcode               PASS coordinates            PASS company-number         
+  PASS phone-number           PASS hero-screen            PASS section-height         
+  PASS section-air            PASS one-section            PASS one-heading            
+  WARN container-edges        PASS row-lines              PASS split-pair             
+  PASS motion-layer           PASS count-text             PASS loop-cycle             
+  PASS section-tile           PASS empty-area             PASS a11y-name              
+  PASS img-alt                PASS field-label            PASS heading-order          
+  PASS tabindex               PASS focus-ring             PASS focus-visible          
+  PASS focus-hidden           PASS skip-link              PASS menu-toggle            
+  PASS lang                   PASS page-meta              PASS share-meta             
+  WARN action-repeat          PASS map-link               PASS open-now               
+  PASS assumed                PASS run-on                 PASS form-fields            
+  PASS form-send              
+
+total  14 FAIL  24 WARN  (crops and report.json in /home/claude/sdmp-website/.taste-skill/consistency)
