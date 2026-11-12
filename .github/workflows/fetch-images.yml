@@ -16,7 +16,7 @@ jobs:
           [ -f img/_fetch.txt ] || exit 0
           while read -r name url; do
             [ -z "$name" ] && continue
-            echo "↓ $name"; curl -sSfL "$url" -o "img/$name"
+            echo "↓ $name"; sleep 3; curl -sSfL -A "sdmp-site-build/1.0 (github.com/Sebunderscore/SDMP-Website)" "$url" -o "img/$name" || { echo "  overgeslagen: $name"; rm -f "img/$name"; }
           done < img/_fetch.txt
           git rm -q img/_fetch.txt
           git config user.name "github-actions"
