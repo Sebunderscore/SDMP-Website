@@ -112,10 +112,10 @@
   const cbtn = $('[data-clients-toggle]'), clist = $('[data-clients]');
   cbtn.addEventListener('click', () => {
     const open = clist.hidden; clist.hidden = !open;
-    cbtn.textContent = open ? 'Hide client list' : `All ${C.all.length} clients`;
+    cbtn.textContent = open ? 'Hide client list' : 'All clients';
     cbtn.setAttribute('aria-expanded', open);
   });
-  cbtn.textContent = `All ${C.all.length} clients`;
+  cbtn.textContent = 'All clients';
 
   const disc = SITE.discography.items;
   $('[data-featured]').innerHTML = disc.filter(r => r.featured).map(r => cover(r, true)).join('');

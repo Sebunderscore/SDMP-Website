@@ -253,3 +253,5 @@ a.card .card-media > img { cursor: pointer; }
 #branding .credits a { text-decoration: none; border-bottom: 1px solid var(--line); }
 #branding .credits a:hover { border-color: var(--accent); }
 @media (max-width: 760px) { .brands { grid-template-columns: repeat(2, 1fr); } .brands li { padding: 28px 12px 24px; } .brands img { height: 38px; } .brands img.wide { height: 18px; margin: 10px 0; } .brand-name { font-size: 28px; line-height: 38px; } }
+/* Telefoon: in de discografie alleen de drie grote hoezen, de rest achter "Show all" */
+@media (max-width: 760px) { .covers:not(.open) > .li { display: none; } }
