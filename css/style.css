@@ -169,7 +169,7 @@ a.card:hover { border-color: rgba(236, 230, 227, .4); transform: translateY(-3px
 a.card .card-media > img { cursor: pointer; }
 .card-media .yt { height: 100%; aspect-ratio: auto; }
 .card-body { padding: 16px 16px 20px; }
-.card-body p:last-child { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
+.card-body p:not(.meta) { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
 
 .text-art { width: 100%; height: 100%; min-height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; background:
   radial-gradient(120% 80% at 80% 10%, rgba(201,164,255,.28), transparent 60%),
@@ -222,3 +222,6 @@ a.card .card-media > img { cursor: pointer; }
 .button.small { display: inline-block; margin: 22px 0 0; padding: 12px 20px; font-size: 11.5px; }
 @media (max-width: 860px) { .featured-releases { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .featured-releases { grid-template-columns: 1fr; } .credits li { flex-direction: column; gap: 2px; } .credits em { text-align: left; } }
+.card-body p.credit { margin-top: 10px; font-size: 10.5px; color: rgba(163,152,148,.7); letter-spacing: .04em; }
+#film .lead { margin-top: -26px; }
+#film .button { margin-top: 44px; }

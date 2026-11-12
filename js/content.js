@@ -5,7 +5,7 @@
 */
 const SITE = {
   name: 'Sebastiaan Dutilh',
-  tagline: 'Composer & producer for film, stage and screen',
+  tagline: 'Composer & producer for film, stage and brands',
   motto: 'Pushing buttons since 1988',
   email: 'sebastiaandutilh@gmail.com',
   instagram: 'https://instagram.com/insebtion_',
@@ -32,6 +32,8 @@ const SITE = {
 
   film: {
     show: 4,
+    intro: 'Together with Belle Doron I write original scores for documentary, short and feature film. Our music as CUT_ has been placed in series like Élite and Anne+. We are always looking for new directors to work with.',
+    cta: 'Making a film? Let’s talk',
     items: [
       { title: 'De Wilde Stad', year: 2020, role: 'Original score', note: 'Feature-length nature documentary, international release.', img: 'img/film-de-wilde-stad.jpg', url: 'https://youtu.be/p9Z8tX6YI3w' },
       { title: 'Élite (Netflix)', year: 2019, role: 'Sync: CUT_ - Out of Touch', note: 'Featured in seasons 2 and 3. #1 on the global Shazam chart.', img: 'img/film-elite.jpg', url: 'https://youtu.be/9NQh9ovnDe0' },
@@ -46,10 +48,10 @@ const SITE = {
     show: 4,
     items: [
       { title: 'The Witch’s Mark', year: 2025, role: 'Composition, production, live score', note: 'A 1.5-hour multidisciplinary show by Belle and The Beats: a witch trial told through live music, contemporary dance and shibari. We co-wrote and produced the album Dancing with the Devil and play the score live. Premiered at Door Open Space, Amsterdam.', featured: true, img: 'img/rel-dancing-with-the-devil.jpg', url: 'https://open.spotify.com/album/7ALCPzdBHYah72NolNYj8F' },
-      { title: 'Blind to the Depths', year: 2023, role: 'Original score', note: 'Full-length contemporary dance piece, choreography by Paxton Ricketts and Madoka Kariya. Premiered at Sadler’s Wells, London.' },
+      { title: 'Blind to the Depths', year: 2023, role: 'Original score', note: 'Full-length contemporary dance piece, choreography by Paxton Ricketts and Madoka Kariya. Premiered at Sadler’s Wells, London.', img: 'img/stage-blind-to-the-depths.jpg', credit: 'Photo via Paxton Ricketts' },
       { title: 'The Ritual', year: 2024, role: 'Concept, music, live', note: 'Multisensory CUT_ show using scent, taste and touch to make live music accessible to audiences with a disability. 15 shows across Europe, incl. Sziget and Colors of Ostrava.' },
       { title: 'RE:HUMANIZE', year: 2020, role: 'Composition, live', note: 'Immersive dance show with choreography by Guido Dutilh, music and dancers reacting to each other live.', img: 'img/dance-rehumanize.jpg', yt: 'ydkhITuYsYo' },
-      { title: 'Amsterdam Fashion Week', year: 2024, role: 'Composition', note: 'Opening piece for designer 1/OFF.' },
+      { title: '1/OFF at Amsterdam Fashion Week', year: 2024, role: 'Composition', note: 'Music for the 1/OFF SS’25 show, the opening show of Amsterdam Fashion Week 2024.', img: 'img/stage-fashion-week-1off.jpg', credit: 'Photo: Merel Daantje' },
       { title: 'Switch (NDT)', year: 2019, role: 'Composition', note: 'Music for new work by dancers of Nederlands Dans Theater. Zuiderstrandtheater, Den Haag.', img: 'img/dance-switch-2019.png' },
       { title: 'Switch: On the Move (NDT)', role: 'Composition', note: 'Lucent Danstheater, Den Haag.', img: 'img/dance-switch-on-the-move.png' },
       { title: 'Switch (NDT)', year: 2021, role: 'Composition', note: 'Nederlands Dans Theater.', img: 'img/dance-switch-2021.jpg' },

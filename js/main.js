@@ -53,6 +53,7 @@
         <p class="meta">${[it.year, it.role].filter(Boolean).map(esc).join(' · ')}</p>
         <h3>${esc(it.title)}</h3>
         <p>${esc(it.note)}</p>
+        ${it.credit ? `<p class="credit">${esc(it.credit)}</p>` : ''}
       </div>`;
     return it.url && !it.yt
       ? `<a class="card" href="${it.url}"${ext(it.url)}>${body}</a>`
@@ -85,6 +86,8 @@
     box.after(btn);
   }
 
+  $('[data-film-intro]').textContent = SITE.film.intro || '';
+  $('[data-film-cta]').textContent = SITE.film.cta || 'Get in touch';
   renderList('film', SITE.film.items, card, SITE.film.show);
 
   const stageFeatured = SITE.stage.items.filter(i => i.featured);
