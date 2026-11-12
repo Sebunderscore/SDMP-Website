@@ -212,3 +212,13 @@ a.card .card-media > img { cursor: pointer; }
 }
 .cards > .li, .covers > .li, .video-grid > .li { min-width: 0; }
 .card .text-art span { font-size: clamp(24px, 2.2vw, 32px); }
+.credits { list-style: none; padding: 0; margin: 0 auto 40px; max-width: 760px; border-top: 1px solid var(--line); }
+.credits li { display: flex; justify-content: space-between; gap: 1rem; padding: 12px 4px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.credits strong { font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.credits strong span { color: var(--muted); font-weight: 400; margin-left: 6px; }
+.credits em { font-style: normal; color: var(--muted); text-align: right; }
+.featured-releases { grid-template-columns: repeat(3, 1fr); max-width: none; }
+.release figcaption small { display: block; color: var(--accent); font-size: 11.5px; margin-top: 3px; }
+.button.small { display: inline-block; margin: 22px 0 0; padding: 12px 20px; font-size: 11.5px; }
+@media (max-width: 860px) { .featured-releases { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .featured-releases { grid-template-columns: 1fr; } .credits li { flex-direction: column; gap: 2px; } .credits em { text-align: left; } }

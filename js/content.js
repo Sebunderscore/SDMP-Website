@@ -45,7 +45,7 @@ const SITE = {
   stage: {
     show: 4,
     items: [
-      { title: 'The Witch’s Mark', year: 2025, role: 'Composition, production, live score', note: 'A 1.5-hour multidisciplinary show by Belle and The Beats: a witch trial told through live music, contemporary dance and shibari. We co-wrote and produced the album Dancing with the Devil and play the score live. Premiered at Door Open Space, Amsterdam.', featured: true },
+      { title: 'The Witch’s Mark', year: 2025, role: 'Composition, production, live score', note: 'A 1.5-hour multidisciplinary show by Belle and The Beats: a witch trial told through live music, contemporary dance and shibari. We co-wrote and produced the album Dancing with the Devil and play the score live. Premiered at Door Open Space, Amsterdam.', featured: true, img: 'img/rel-dancing-with-the-devil.jpg', url: 'https://open.spotify.com/album/7ALCPzdBHYah72NolNYj8F' },
       { title: 'Blind to the Depths', year: 2023, role: 'Original score', note: 'Full-length contemporary dance piece, choreography by Paxton Ricketts and Madoka Kariya. Premiered at Sadler’s Wells, London.' },
       { title: 'The Ritual', year: 2024, role: 'Concept, music, live', note: 'Multisensory CUT_ show using scent, taste and touch to make live music accessible to audiences with a disability. 15 shows across Europe, incl. Sziget and Colors of Ostrava.' },
       { title: 'RE:HUMANIZE', year: 2020, role: 'Composition, live', note: 'Immersive dance show with choreography by Guido Dutilh, music and dancers reacting to each other live.', img: 'img/dance-rehumanize.jpg', yt: 'ydkhITuYsYo' },
@@ -59,7 +59,15 @@ const SITE = {
 
   commercials: {
     show: 6,
-    clients: 'Volkswagen · Mazda · Eni · Hunkemöller · TK Maxx · Karwei · Swisscom · Pattex · T-Mobile',
+    clients: 'Sparkasse · Bupa · UBS · Philips · Volkswagen · Mazda · T-Mobile · Eni · Hunkemöller · Swisscom · TK Maxx · Karwei · Pattex',
+    // Werk zonder video. Video erbij? Zet het item met yt: 'videoID' in items hieronder.
+    credits: [
+      { client: 'Sparkasse', region: 'DE', work: 'Sonic branding & brand music' },
+      { client: 'Bupa', region: 'AU', work: 'Sonic branding' },
+      { client: 'UBS', region: '', work: 'Ad music, UBS Platform' },
+      { client: 'Philips', region: '', work: 'Ad music, Philips Steam' },
+      { client: 'T-Mobile', region: 'CZ', work: 'Ad music' }
+    ],
     items: [
       { title: 'Eni', yt: 'Cehr2FDxos0' },
       { title: 'Volkswagen ID.3', yt: 'y-o_vdX8XnA' },
@@ -77,18 +85,20 @@ const SITE = {
   discography: {
     show: 12,
     items: [
-      { title: 'CUT_ - FEMINONE (Album)', year: 2026, featured: true, url: 'https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F' },
-      { title: 'CUT_ - Flip The Switch (Album)', year: 2024, featured: true, url: 'https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F' },
+      { title: 'CUT_ - FEMINONE (Album)', year: 2026, featured: true, img: 'img/rel-feminone.jpg', url: 'https://open.spotify.com/album/61LrLjkMhsASNnqVBgwVIO' },
+      { title: 'Belle and The Beats - Dancing with The Devil (Album)', year: 2025, featured: true, img: 'img/rel-dancing-with-the-devil.jpg', url: 'https://open.spotify.com/album/7ALCPzdBHYah72NolNYj8F', note: 'Co-written, produced & mixed. The music of The Witch’s Mark.' },
+      { title: 'CUT_ - Flip The Switch (Album)', year: 2024, featured: true, img: 'img/rel-flip-the-switch.jpg', url: 'https://open.spotify.com/album/2rOTzM0jRcR5OzJ8dtAFrM' },
       { title: 'CUT_ - Egolove (Album)', img: 'img/rel-egolove.jpg', url: 'https://open.spotify.com/album/5Txm8EeujDX4mcaBtA4ZLJ' },
       { title: 'Belako - Sirene (CUT_ Remix)', img: 'img/rel-belako-sirene.jpg', url: 'https://open.spotify.com/track/0wPCRE762KtctiDsE3CdgO' },
       { title: 'CUT_ - Shostakovich', img: 'img/rel-shostakovich.jpg', url: 'https://www.youtube.com/watch?v=RaZOrgGnDfg' },
       { title: 'CUT_ - The Edge', img: 'img/rel-the-edge.jpg', url: 'https://www.youtube.com/watch?v=uZEA3EQqFDU' },
       { title: 'CUT_ - No Princess', img: 'img/rel-no-princess.jpg', url: 'https://www.youtube.com/watch?v=2GWYZIFrI7w' },
       { title: 'CUT_ - Secret', img: 'img/rel-secret.jpg', url: 'https://www.youtube.com/watch?v=6OM4__gI4io' },
-      { title: 'The Policy', img: 'img/rel-the-policy.jpg', url: 'https://open.spotify.com/track/1CcudNqbdSAj5HbpXooL2c' },
+      { title: 'CUT_ - Breathe (The Policy Remix)', img: 'img/rel-the-policy.jpg', url: 'https://open.spotify.com/track/1CcudNqbdSAj5HbpXooL2c' },
       { title: 'CUT_ - Cry', img: 'img/rel-cry.jpg', url: 'https://open.spotify.com/track/2FKmnn5Q9Q8JU9MqtsvF5d' },
       { title: 'CUT_ - Last Night', img: 'img/rel-last-night.jpg', url: 'https://open.spotify.com/track/2ItISvdmueiDlRLlLUC3Mz' },
-      { title: 'CUT_ - A Small Group of Individuals (Album, incl. Out of Touch)', year: 2019, img: 'img/rel-small-group-of-individuals.jpg', url: 'https://open.spotify.com/album/5QQRlQ7JnXy6c7HNDWVibk' },
+      { title: 'CUT_ - Out of Touch', year: 2019, img: 'img/rel-small-group-of-individuals.jpg', url: 'https://open.spotify.com/track/3DgjbN7e2gppallutVbat6', note: '80M+ streams · Netflix’s Élite' },
+      { title: 'CUT_ - A Small Group of Individuals (Album)', year: 2019, img: 'img/rel-small-group-of-individuals.jpg', url: 'https://open.spotify.com/album/5QQRlQ7JnXy6c7HNDWVibk' },
       { title: 'Ciaran Lavery - Count to Ten (CUT_ Remix)', img: 'img/rel-ciaran-lavery.jpg', url: 'https://open.spotify.com/track/5BsIrgVz9luIhJffCLkXfc' },
       { title: 'Rina Mushonga - Cassiopeia', img: 'img/rel-cassiopeia.jpg', url: 'https://open.spotify.com/track/50MJKQk7ysuXS4HWsSxJZk' },
       { title: 'CUT_ - Blind = Bliss EP', img: 'img/rel-blind-bliss.jpg', url: 'https://open.spotify.com/album/1TtLXuYCUTwrfvi9t4KmJg' },

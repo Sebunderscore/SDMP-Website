@@ -61,7 +61,7 @@
 
   const cover = (r, big) => {
     const media = r.img ? `<img src="${r.img}" alt="${esc(r.title)}" loading="lazy">` : textArt(r.title.replace(/^CUT_ - /, '').replace(/ \(Album\)$/, ''), r.year);
-    const inner = `${media}<figcaption>${esc(r.title)}${r.year ? ` <span>${r.year}</span>` : ''}</figcaption>`;
+    const inner = `${media}<figcaption>${esc(r.title)}${r.year ? ` <span>${r.year}</span>` : ''}${r.note ? `<small>${esc(r.note)}</small>` : ''}</figcaption>`;
     return r.url ? `<figure class="release${big ? ' big' : ''}"><a href="${r.url}" target="_blank" rel="noopener">${inner}</a></figure>`
                  : `<figure class="release${big ? ' big' : ''}">${inner}</figure>`;
   };
@@ -95,11 +95,14 @@
         <p class="meta">${[it.year, it.role].filter(Boolean).map(esc).join(' · ')}</p>
         <h3>${esc(it.title)}</h3>
         <p>${esc(it.note)}</p>
+        ${it.url ? `<a class="button small" href="${it.url}" target="_blank" rel="noopener">Listen to the album</a>` : ''}
       </div>
     </article>`).join('');
   renderList('stage', SITE.stage.items.filter(i => !i.featured), card, SITE.stage.show);
 
   $('[data-clients]').textContent = SITE.commercials.clients;
+  $('[data-credits]').innerHTML = (SITE.commercials.credits || []).map(c => `
+    <li><strong>${esc(c.client)}${c.region ? ` <span>${esc(c.region)}</span>` : ''}</strong><em>${esc(c.work)}</em></li>`).join('');
   renderList('commercials', SITE.commercials.items, v => ytCard(v), SITE.commercials.show);
 
   const disc = SITE.discography.items;
