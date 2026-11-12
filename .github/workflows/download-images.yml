@@ -1,0 +1,20 @@
+name: Afbeeldingen van Squarespace binnenhalen
+# Eenmalig: haalt alle afbeeldingen naar /img en zet de site op lokale bestanden.
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/download-images.yml']
+permissions:
+  contents: write
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash download-images.sh
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add img js/content.js
+          git diff --cached --quiet || git commit -m "Afbeeldingen lokaal opgeslagen"
+          git push
