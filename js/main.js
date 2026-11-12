@@ -1,7 +1,8 @@
 (function () {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
-  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ext = url => url && !url.startsWith('#') ? ' target="_blank" rel="noopener"' : '';
 
   const icons = {
     mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
@@ -9,40 +10,103 @@
     spotify: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M7.5 9.6c3-1 6.6-.7 9.2.8M8 12.6c2.5-.7 5.2-.4 7.4.8M8.6 15.4c1.9-.5 3.9-.3 5.6.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>'
   };
 
-  // Teksten
+  // Basis
   $$('[data-bind]').forEach(el => { el.textContent = SITE[el.dataset.bind]; });
   $$('[data-bind-href]').forEach(el => { el.href = SITE[el.dataset.bindHref]; });
   $('.hero-bg').style.backgroundImage = `url("${SITE.heroImage}")`;
   $('[data-year]').textContent = new Date().getFullYear();
+  $$('[data-socials]').forEach(el => {
+    el.innerHTML = `
+      <a href="mailto:${SITE.email}" aria-label="Email">${icons.mail}</a>
+      <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icons.instagram}</a>
+      <a href="${SITE.spotify}" target="_blank" rel="noopener" aria-label="Spotify">${icons.spotify}</a>`;
+  });
 
-  const socials = `
-    <a href="mailto:${SITE.email}" aria-label="Email">${icons.mail}</a>
-    <a href="${SITE.instagram}" target="_blank" rel="noopener" aria-label="Instagram">${icons.instagram}</a>
-    <a href="${SITE.spotify}" target="_blank" rel="noopener" aria-label="Spotify">${icons.spotify}</a>`;
-  $$('[data-socials]').forEach(el => { el.innerHTML = socials; });
+  // Typografische plaat voor items zonder afbeelding
+  const textArt = (title, year) => `<div class="text-art"><span>${esc(title)}</span>${year ? `<small>${year}</small>` : ''}</div>`;
 
-  // About
-  $('[data-portrait]').src = SITE.portrait;
-  $('[data-about]').innerHTML = SITE.about.map(p => `<p>${p}</p>`).join('');
-
-  // Film & TV
-  $('[data-film]').innerHTML = SITE.film.map(f => {
-    const inner = `<img src="${f.img}" alt="${esc(f.title)} poster" loading="lazy"><figcaption><strong>${esc(f.title)}</strong><span>${esc(f.note)}</span></figcaption>`;
-    return f.url
-      ? `<figure class="poster"><a href="${f.url}" target="_blank" rel="noopener">${inner}</a></figure>`
-      : `<figure class="poster">${inner}</figure>`;
-  }).join('');
-
-  // YouTube: eerst alleen een thumbnail, de echte player (youtube-nocookie) laadt pas na een klik.
-  // Scheelt veel laadtijd en er worden geen YouTube-cookies gezet zolang niemand klikt.
+  // YouTube: thumbnail eerst, player (youtube-nocookie) pas na een klik
   const ytCard = (v, big) => `
     <button class="yt${big ? ' yt-big' : ''}" data-yt="${v.yt}" aria-label="Play: ${esc(v.title)}">
       <img src="https://i.ytimg.com/vi/${v.yt}/${big ? 'maxresdefault' : 'hqdefault'}.jpg" alt="" loading="lazy">
       <span class="play" aria-hidden="true"></span>
       <span class="yt-title">${esc(v.title)}</span>
     </button>`;
-  $('[data-commercials]').innerHTML = SITE.commercials.map(v => ytCard(v)).join('');
-  $('[data-dance-video]').innerHTML = ytCard(SITE.dance.video, true);
+
+  // Highlights
+  $('[data-highlights]').innerHTML = SITE.highlights.map(h => `
+    <a class="hl" href="${h.url}"${ext(h.url)}>
+      <span class="hl-big">${esc(h.big)}</span>
+      <span class="hl-label">${esc(h.label)}</span>
+      <strong>${esc(h.title)}</strong>
+      <span class="hl-text">${esc(h.text)}</span>
+    </a>`).join('');
+
+  // Kaart voor film en podium
+  const card = it => {
+    const media = it.yt ? ytCard({ yt: it.yt, title: it.title })
+      : it.img ? `<img src="${it.img}" alt="${esc(it.title)}" loading="lazy">`
+      : textArt(it.title, it.year);
+    const body = `
+      <div class="card-media">${media}</div>
+      <div class="card-body">
+        <p class="meta">${[it.year, it.role].filter(Boolean).map(esc).join(' · ')}</p>
+        <h3>${esc(it.title)}</h3>
+        <p>${esc(it.note)}</p>
+      </div>`;
+    return it.url && !it.yt
+      ? `<a class="card" href="${it.url}"${ext(it.url)}>${body}</a>`
+      : `<article class="card">${body}</article>`;
+  };
+
+  const cover = (r, big) => {
+    const media = r.img ? `<img src="${r.img}" alt="${esc(r.title)}" loading="lazy">` : textArt(r.title.replace(/^CUT_ - /, '').replace(/ \(Album\)$/, ''), r.year);
+    const inner = `${media}<figcaption>${esc(r.title)}${r.year ? ` <span>${r.year}</span>` : ''}</figcaption>`;
+    return r.url ? `<figure class="release${big ? ' big' : ''}"><a href="${r.url}" target="_blank" rel="noopener">${inner}</a></figure>`
+                 : `<figure class="release${big ? ' big' : ''}">${inner}</figure>`;
+  };
+
+  // Lijst met "Show more"
+  function renderList(key, items, render, show) {
+    const box = $(`[data-list="${key}"]`);
+    box.innerHTML = items.map((it, i) => `<div class="li${i >= show ? ' extra' : ''}">${render(it)}</div>`).join('');
+    if (items.length <= show) return;
+    const btn = document.createElement('button');
+    btn.className = 'more';
+    const label = open => open ? 'Show less' : `Show all ${items.length}`;
+    btn.textContent = label(false);
+    btn.setAttribute('aria-expanded', 'false');
+    btn.addEventListener('click', () => {
+      const open = box.classList.toggle('open');
+      btn.textContent = label(open);
+      btn.setAttribute('aria-expanded', open);
+      if (!open) box.closest('section').scrollIntoView({ behavior: 'smooth' });
+    });
+    box.after(btn);
+  }
+
+  renderList('film', SITE.film.items, card, SITE.film.show);
+
+  const stageFeatured = SITE.stage.items.filter(i => i.featured);
+  $('[data-stage-featured]').innerHTML = stageFeatured.map(it => `
+    <article class="feature">
+      <div class="feature-media">${it.img ? `<img src="${it.img}" alt="${esc(it.title)}">` : textArt(it.title, it.year)}</div>
+      <div class="feature-body">
+        <p class="meta">${[it.year, it.role].filter(Boolean).map(esc).join(' · ')}</p>
+        <h3>${esc(it.title)}</h3>
+        <p>${esc(it.note)}</p>
+      </div>
+    </article>`).join('');
+  renderList('stage', SITE.stage.items.filter(i => !i.featured), card, SITE.stage.show);
+
+  $('[data-clients]').textContent = SITE.commercials.clients;
+  renderList('commercials', SITE.commercials.items, v => ytCard(v), SITE.commercials.show);
+
+  const disc = SITE.discography.items;
+  $('[data-featured]').innerHTML = disc.filter(r => r.featured).map(r => cover(r, true)).join('');
+  renderList('discography', disc.filter(r => !r.featured), r => cover(r), SITE.discography.show);
+
+  // YouTube activeren
   document.addEventListener('click', e => {
     const b = e.target.closest('.yt');
     if (!b) return;
@@ -56,32 +120,21 @@
     wrap.appendChild(f);
     b.replaceWith(wrap);
   });
-  // Fallback als maxresdefault niet bestaat (YouTube geeft dan een grijs plaatje van 120px)
   $$('.yt img').forEach(i => i.addEventListener('load', () => {
     if (i.naturalWidth <= 120) i.src = i.src.replace('maxresdefault', 'hqdefault');
   }));
 
-  // Dans-posters met lightbox
-  $('[data-dance-posters]').innerHTML = SITE.dance.posters.map(p =>
-    `<button class="dposter" data-full="${p.img}" aria-label="Enlarge: ${esc(p.title)}"><img src="${p.img}" alt="${esc(p.title)}" loading="lazy"></button>`).join('');
+  // Lightbox voor posters
   const lb = $('.lightbox');
   document.addEventListener('click', e => {
-    const p = e.target.closest('.dposter');
-    if (p) { $('img', lb).src = p.dataset.full; $('img', lb).alt = p.getAttribute('aria-label'); lb.showModal(); }
+    const img = e.target.closest('article.card .card-media img');
+    if (img) { $('img', lb).src = img.src; $('img', lb).alt = img.alt; lb.showModal(); }
   });
   lb.addEventListener('click', e => { if (e.target === lb || e.target.tagName === 'BUTTON') lb.close(); });
 
-  // Discografie
-  const cover = (r, cls) => {
-    const inner = `<img src="${r.img}" alt="${esc(r.title)}" loading="lazy"><figcaption>${esc(r.title)}</figcaption>`;
-    return r.url
-      ? `<figure class="${cls}"><a href="${r.url}" target="_blank" rel="noopener">${inner}</a></figure>`
-      : `<figure class="${cls}">${inner}</figure>`;
-  };
-  $('[data-featured]').innerHTML = SITE.discography.filter(r => r.featured).map(r => cover(r, 'release big')).join('');
-  $('[data-covers]').innerHTML = SITE.discography.filter(r => !r.featured).map(r => cover(r, 'release')).join('');
-
-  // Contact
+  // About & contact
+  $('[data-portrait]').src = SITE.portrait;
+  $('[data-about]').innerHTML = SITE.about.map(p => `<p>${p}</p>`).join('');
   const mail = $('[data-mail]');
   mail.href = 'mailto:' + SITE.email; mail.textContent = SITE.email;
   $('[data-address]').innerHTML = SITE.address.map(esc).join('<br>');
@@ -96,7 +149,7 @@
     document.body.classList.remove('nav-open'); toggle.setAttribute('aria-expanded', false);
   }));
 
-  // Actief menu-item volgt de sectie in beeld
+  // Actief menu-item
   const links = new Map($$('a', nav).map(a => [a.getAttribute('href').slice(1), a]));
   const spy = new IntersectionObserver(entries => {
     entries.forEach(en => {
@@ -107,7 +160,6 @@
   }, { rootMargin: '-45% 0px -50% 0px' });
   $$('main > section').forEach(s => spy.observe(s));
 
-  // Topbar krijgt achtergrond zodra je van de hero af scrolt
   const bar = $('.topbar');
   const onScroll = () => bar.classList.toggle('solid', window.scrollY > window.innerHeight * 0.6);
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();

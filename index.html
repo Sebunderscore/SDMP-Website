@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sebastiaan Dutilh | Music Producer, Composer & Sound Designer</title>
-  <meta name="description" content="Sebastiaan Dutilh: music producer, composer and sound designer from Amsterdam. Music for film, TV, commercials and contemporary dance. Founding member of electro-pop duo CUT_.">
+  <title>Sebastiaan Dutilh | Composer & Producer for Film, Stage and Screen</title>
+  <meta name="description" content="Sebastiaan Dutilh: composer, producer and sound designer from Amsterdam. Scores for film, contemporary dance and theatre, music for commercials, and one half of CUT_ (Out of Touch, 80M+ streams, Netflix's Élite).">
   <link rel="canonical" href="https://sdmp.studio/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Sebastiaan Dutilh Music Production">
-  <meta property="og:description" content="Music for film, TV, commercials and contemporary dance. Amsterdam.">
+  <meta property="og:title" content="Sebastiaan Dutilh | Composer & Producer">
+  <meta property="og:description" content="Music for film, stage and screen. Amsterdam.">
   <meta property="og:url" content="https://sdmp.studio/">
+  <meta property="og:image" content="https://sdmp.studio/img/hero-studio.jpg">
   <meta name="theme-color" content="#0e0606">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;500&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Person","name":"Sebastiaan Dutilh","jobTitle":"Music Producer, Composer, Sound Designer","url":"https://sdmp.studio/","address":{"@type":"PostalAddress","addressLocality":"Amsterdam","addressCountry":"NL"},"sameAs":["https://instagram.com/insebtion_","https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F","http://cutunderscore.com/"]}
+  {"@context":"https://schema.org","@type":"Person","name":"Sebastiaan Dutilh","jobTitle":"Composer, Music Producer, Sound Designer","url":"https://sdmp.studio/","address":{"@type":"PostalAddress","addressLocality":"Amsterdam","addressCountry":"NL"},"memberOf":{"@type":"MusicGroup","name":"CUT_","url":"http://cutunderscore.com/"},"sameAs":["https://instagram.com/insebtion_","https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F"]}
   </script>
 </head>
 <body>
@@ -24,11 +25,11 @@
     <a class="brand" href="#home">Sebastiaan Dutilh<span>Music Production</span></a>
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
     <nav id="nav">
-      <a href="#about">About</a>
       <a href="#film">Film &amp; TV</a>
+      <a href="#stage">Stage &amp; Dance</a>
       <a href="#commercials">Commercials</a>
-      <a href="#dance">Dance</a>
       <a href="#discography">Discography</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -42,7 +43,37 @@
         <p class="motto" data-bind="motto"></p>
         <div class="socials" data-socials></div>
       </div>
-      <a class="scroll-cue" href="#about" aria-label="Scroll down"></a>
+      <a class="scroll-cue" href="#highlights" aria-label="Scroll down"></a>
+    </section>
+
+    <section id="highlights" class="highlights" aria-label="Highlights" data-highlights></section>
+
+    <section id="film" class="section">
+      <p class="kicker">Score &amp; sync</p>
+      <h2>Film &amp; TV</h2>
+      <div class="cards" data-list="film"></div>
+    </section>
+
+    <section id="stage" class="section">
+      <p class="kicker">Dance, theatre &amp; live</p>
+      <h2>Stage &amp; Dance</h2>
+      <div data-stage-featured></div>
+      <div class="cards" data-list="stage"></div>
+    </section>
+
+    <section id="commercials" class="section">
+      <p class="kicker">Custom music &amp; sonic branding</p>
+      <h2>Commercials</h2>
+      <p class="clients" data-clients></p>
+      <div class="video-grid" data-list="commercials"></div>
+    </section>
+
+    <section id="discography" class="section">
+      <p class="kicker">Written, produced &amp; mixed</p>
+      <h2>Discography</h2>
+      <div class="featured-releases" data-featured></div>
+      <div class="covers" data-list="discography"></div>
+      <a class="button" data-bind-href="spotify" target="_blank" rel="noopener">Full discography on Spotify</a>
     </section>
 
     <section id="about" class="section">
@@ -51,31 +82,6 @@
         <img class="portrait" alt="Portrait of Sebastiaan Dutilh" loading="lazy" data-portrait>
         <div class="about-text" data-about></div>
       </div>
-    </section>
-
-    <section id="film" class="section">
-      <h2>Feature film &amp; TV</h2>
-      <div class="posters" data-film></div>
-    </section>
-
-    <section id="commercials" class="section">
-      <h2>Commercials</h2>
-      <p class="lead">A selection of the custom music I wrote and produced over the years.</p>
-      <div class="video-grid" data-commercials></div>
-    </section>
-
-    <section id="dance" class="section">
-      <h2>Compositions for contemporary dance</h2>
-      <div class="feature-video" data-dance-video></div>
-      <div class="dance-posters" data-dance-posters></div>
-    </section>
-
-    <section id="discography" class="section">
-      <h2>Discography</h2>
-      <p class="lead">A selection of official releases I wrote, produced and mixed.</p>
-      <div class="featured-releases" data-featured></div>
-      <div class="covers" data-covers></div>
-      <a class="button" data-bind-href="spotify" target="_blank" rel="noopener">Listen to my full discography on Spotify</a>
     </section>
 
     <section id="contact" class="section contact">

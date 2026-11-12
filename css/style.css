@@ -143,3 +143,72 @@ footer a:hover { color: var(--ink); }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* ---------- v2 ---------- */
+.kicker { text-align: center; margin: 0 0 6px; font-size: 11.5px; letter-spacing: .28em; text-transform: uppercase; color: var(--accent); }
+.section h2 { margin-bottom: 44px; }
+h3 { margin: 0 0 8px; font: 400 26px/1.1 var(--display); letter-spacing: .04em; text-transform: uppercase; }
+.meta { margin: 0 0 6px; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+/* Highlights */
+.highlights { max-width: var(--max); margin: -110px auto 0; position: relative; z-index: 2; padding: 0 clamp(20px, 4vw, 48px); display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: transparent; }
+.hl { display: flex; flex-direction: column; gap: 4px; padding: 26px 22px 24px; background: rgba(22, 11, 12, .92); border: 1px solid var(--line); text-decoration: none; transition: background .25s, border-color .25s; backdrop-filter: blur(6px); }
+.hl:hover { background: #22121a; border-color: rgba(201, 164, 255, .5); }
+.hl-big { font: 400 clamp(34px, 3.6vw, 48px)/1 var(--display); letter-spacing: .02em; }
+.hl-label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.hl strong { font-weight: 500; letter-spacing: .06em; text-transform: uppercase; font-size: 12.5px; color: var(--accent); }
+.hl-text { font-size: 12.5px; line-height: 1.55; color: var(--muted); }
+
+/* Kaarten */
+.cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(16px, 2.2vw, 28px); }
+.cards .li { display: flex; }
+.card { display: flex; flex-direction: column; width: 100%; text-decoration: none; background: var(--bg-2); border: 1px solid var(--line); transition: border-color .25s, transform .25s; }
+a.card:hover { border-color: rgba(236, 230, 227, .4); transform: translateY(-3px); }
+.card-media { aspect-ratio: 4 / 5; overflow: hidden; background: #000; }
+.card-media > img { width: 100%; height: 100%; object-fit: cover; cursor: zoom-in; }
+a.card .card-media > img { cursor: pointer; }
+.card-media .yt { height: 100%; aspect-ratio: auto; }
+.card-body { padding: 16px 16px 20px; }
+.card-body p:last-child { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--muted); }
+
+.text-art { width: 100%; height: 100%; min-height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; background:
+  radial-gradient(120% 80% at 80% 10%, rgba(201,164,255,.28), transparent 60%),
+  radial-gradient(90% 70% at 10% 100%, rgba(140,30,60,.45), transparent 65%), #120809; }
+.text-art span { font: 300 clamp(26px, 2.6vw, 38px)/1 var(--display); text-transform: uppercase; letter-spacing: .04em; }
+.text-art small { margin-top: 8px; font-size: 11px; letter-spacing: .24em; color: var(--muted); }
+
+/* Uitgelicht podiumwerk */
+.feature { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-bottom: clamp(22px, 3vw, 36px); border: 1px solid var(--line); background: var(--bg-2); }
+.feature-media { aspect-ratio: 4 / 3; }
+.feature-media img { width: 100%; height: 100%; object-fit: cover; }
+.feature-media .text-art span { font-size: clamp(44px, 6vw, 84px); }
+.feature-body { padding: clamp(24px, 4vw, 48px); align-self: center; }
+.feature-body h3 { font-size: clamp(30px, 3.4vw, 44px); margin-bottom: 14px; }
+.feature-body p:last-child { color: var(--muted); margin: 0; }
+
+/* Show more */
+.li.extra { display: none; }
+.open > .li.extra { display: flex; }
+.covers.open > .li.extra, .video-grid.open > .li.extra { display: block; }
+.more { display: table; margin: 32px auto 0; padding: 12px 26px; background: none; color: var(--ink); border: 1px solid var(--line); font: 500 12px/1 var(--mono); letter-spacing: .22em; text-transform: uppercase; cursor: pointer; transition: border-color .2s, background .2s, color .2s; }
+.more:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+.clients { text-align: center; color: var(--muted); font-size: 12.5px; letter-spacing: .12em; margin: -24px auto 40px; max-width: 70ch; }
+
+/* Discografie: tekstcovers en jaartal */
+.release .text-art { aspect-ratio: 1; height: auto; }
+.release.big .text-art span { font-size: clamp(40px, 5vw, 68px); }
+.release figcaption span { color: var(--accent); }
+
+@media (max-width: 1000px) {
+  .highlights { grid-template-columns: repeat(2, 1fr); }
+  .cards { grid-template-columns: repeat(2, 1fr); }
+  .feature { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .highlights { grid-template-columns: 1fr; margin-top: -60px; }
+  .cards { grid-template-columns: 1fr; }
+  .card-media { aspect-ratio: 16 / 10; }
+}
+.cards > .li, .covers > .li, .video-grid > .li { min-width: 0; }
+.card .text-art span { font-size: clamp(24px, 2.2vw, 32px); }
