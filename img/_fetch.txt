@@ -1,8 +1,0 @@
-logo-philips-a.svg https://commons.wikimedia.org/wiki/Special:FilePath/Philips_logo_new.svg
-logo-philips-b.svg https://commons.wikimedia.org/wiki/Special:FilePath/Philips_logo.svg
-logo-tmobile-a.svg https://commons.wikimedia.org/wiki/Special:FilePath/T-Mobile_logo.svg
-logo-tmobile-b.svg https://commons.wikimedia.org/wiki/Special:FilePath/T-Mobile_logo_2022.svg
-logo-tmobile-c.svg https://commons.wikimedia.org/wiki/Special:FilePath/Telekom_Logo_2013.svg
-logo-bupa-a.svg https://commons.wikimedia.org/wiki/Special:FilePath/Bupa_logo.svg
-logo-bupa-b.svg https://commons.wikimedia.org/wiki/Special:FilePath/Bupa.svg
-logo-bupa-c.svg https://commons.wikimedia.org/wiki/Special:FilePath/Bupa_logo_2023.svg
