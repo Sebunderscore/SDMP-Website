@@ -14,9 +14,11 @@
 <!-- <link rel="canonical" href="https://sdmp.studio/"> once the domain points here -->
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&amp;family=Libre+Franklin:wght@400..600&amp;display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/schibsted-grotesk.woff2" as="font" type="font/woff2" crossorigin="">
+<style>
+/* the dealt pairing, served from this site (latin subset of the Google Fonts files) */
+@font-face { font-family: "Schibsted Grotesk"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/schibsted-grotesk.woff2) format("woff2"); }
+</style>
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -29,11 +31,12 @@
   --p-accent: #0f7d45; --p-accent-ink: #ffffff; --p-action: #0f7d45; --p-action-ink: #ffffff;
   --p-inv-bg: #2b2622; --p-inv-surface: #36312d; --p-inv-ink: #ebe5e3; --p-inv-muted: #a29c99;
   --p-inv-accent: #ebe5e3; --p-inv-accent-ink: #2b2622; --p-inv-action: #ebe5e3; --p-inv-action-ink: #2b2622;
-  --font-display: "Source Serif 4", Georgia, serif;
-  --font-text: "Libre Franklin", system-ui, sans-serif;
+  --font-display: "Schibsted Grotesk", system-ui, sans-serif;
+  --font-text: "Schibsted Grotesk", system-ui, sans-serif;
   --display-weight: 400;
-  --display-tracking: -0.02em;
-  --display-tracking-xl: -0.026em;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.042em;
+  --ly-scale: 0.98;
 }
 </style>
 <!-- page CSS: only inside a visual -->
@@ -43,6 +46,7 @@
   #reel .reel__poster > img { transition: transform 600ms var(--ease); }
   @media (hover: hover) and (pointer: fine) { #reel .reel__poster:hover > img { transform: scale(1.02); } }
   @media (max-width: 1023px) { #reel .reel__frame { height: auto; aspect-ratio: 16 / 9; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #reel .reel__frame { aspect-ratio: 1 / 1; } }
   @media (max-width: 639px) { #reel .reel__frame { aspect-ratio: 4 / 5; } }
   #branding .branding__photo { display: block; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; }
   #dance .dance__frame { background: var(--surface); }
@@ -53,11 +57,13 @@
   #records .wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
   @media (hover: hover) and (pointer: fine) { #records .wall a:hover img { transform: scale(1.03); } }
   @media (min-width: 640px) { #records .wall > a:nth-child(n+13) { display: none; } }
+  #stage .mo-pc__visual > img { object-position: var(--pos, 50% 50%); }
+  @media (max-width: 639px) { #stage:not(.is-live) { min-height: calc(2 * 100lvh); } #stage:not(.is-live) .mo-pc__visual > img { aspect-ratio: 21 / 20; max-height: none; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #records .wall { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   @media (max-width: 639px) { #records .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   #about .about__photo { position: relative; overflow: hidden; border-radius: var(--r-lg); height: min(620px, var(--ly-fit, 620px)); }
   #about .about__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
   @media (max-width: 1023px) { #about .about__photo { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
-  @media (max-width: 639px) { #about .about__photo { aspect-ratio: 4 / 5; } }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
@@ -70,7 +76,7 @@
 <body>
 <!-- type: service
      deal: hero split, nav nav-split, close close-type, footer footer-dark, rhythm surface-pairs, buttons solid, mark initial
-     palette rose-grey-green, type source-serif (Source Serif 4 / Libre Franklin), radius soft
+     palette rose-grey-green, type schibsted (Schibsted Grotesk; source-serif failed hero-lines at 45 characters), radius soft
      moments: pinned-chapters in #stage (three live scores, one frame), word-highlight in #studio (the statement) -->
 
 <header class="nav nav--split" data-m-nav="1">
@@ -104,7 +110,7 @@
         </div>
       </div>
       <div class="hero__media span-6 start-7">
-        <img src="img/hero-studio.jpg" alt="Hands on a modular synthesizer in the studio, under orange and green light" style="--ly-pos: 55% 50%" fetchpriority="high" data-source="client" data-subject="the studio">
+        <img src="img/w/hero-studio-960.webp" srcset="img/w/hero-studio-480.webp 480w, img/w/hero-studio-960.webp 960w, img/w/hero-studio-1500.webp 1500w" sizes="(max-width: 1023px) 100vw, 1100px" width="1500" height="1000" alt="Hands on a modular synthesizer in the studio, under orange and green light" style="--ly-pos: 55% 50%" fetchpriority="high" data-source="client" data-subject="the studio">
         <div class="ly-float">
           <div class="ly-float__row"><span>New album</span><span>2026</span></div>
           <div class="ly-float__title">FEMINONE by CUT_</div>
@@ -120,7 +126,7 @@
         <a class="btn btn--secondary" href="https://youtu.be/a45DMk4CSk4" data-yt-play="">Play the showreel</a>
       </div>
       <figure class="reel__frame fit-screen" data-yt="a45DMk4CSk4">
-        <a class="reel__poster" href="https://youtu.be/a45DMk4CSk4" data-yt-play="" aria-label="Play the showreel"><img src="img/yt-showreel.jpg" alt="A dancer on a dark stage in front of a gold curtain, the first frame of the showreel" loading="eager" data-source="client" data-subject="showreel"></a>
+        <a class="reel__poster" href="https://youtu.be/a45DMk4CSk4" data-yt-play="" aria-label="Play the showreel"><img src="img/w/yt-showreel-960.webp" srcset="img/w/yt-showreel-480.webp 480w, img/w/yt-showreel-960.webp 960w, img/w/yt-showreel-1280.webp 1280w" sizes="(max-width: 639px) 780px, (max-width: 1023px) 100vw, 1280px" width="1280" height="720" alt="A dancer on a dark stage in front of a gold curtain, the first frame of the showreel" loading="eager" data-source="client" data-subject="showreel" decoding="async"></a>
       </figure>
     </div>
   </section>
@@ -133,17 +139,17 @@
       </div>
       <div class="grid">
         <a class="tile span-4" href="https://youtu.be/p9Z8tX6YI3w">
-          <div class="tile__media"><img src="img/film-de-wilde-stad.jpg" alt="Poster of De Wilde Stad: a falcon over the canals of Amsterdam" loading="eager" style="object-position: 50% 12%" data-source="client" data-subject="film poster"></div>
+          <div class="tile__media"><img src="img/w/film-de-wilde-stad-700.webp" srcset="img/w/film-de-wilde-stad-480.webp 480w, img/w/film-de-wilde-stad-700.webp 700w" sizes="(max-width: 1023px) 100vw, 410px" width="700" height="1000" alt="Poster of De Wilde Stad: a falcon over the canals of Amsterdam" loading="eager" style="object-position: 50% 12%" data-source="client" data-subject="film poster" decoding="async"></div>
           <div class="tile__head"><h3>De Wilde Stad</h3></div>
           <p class="tile__facts">Original score for a nature documentary, 2020</p>
         </a>
         <a class="tile span-4" href="https://youtu.be/9NQh9ovnDe0">
-          <div class="tile__media"><img src="img/film-elite.jpg" alt="Poster of the Netflix series Élite" loading="eager" style="object-position: 50% 30%" data-source="client" data-subject="series poster"></div>
+          <div class="tile__media"><img src="img/w/film-elite-426.webp" srcset="img/w/film-elite-426.webp 426w" sizes="(max-width: 1023px) 100vw, 410px" width="426" height="597" alt="Poster of the Netflix series Élite" loading="eager" style="object-position: 50% 30%" data-source="client" data-subject="series poster" decoding="async"></div>
           <div class="tile__head"><h3>Élite, Netflix</h3></div>
           <p class="tile__facts">Out of Touch in seasons 2 and 3, 2019</p>
         </a>
         <div class="tile span-4">
-          <div class="tile__media"><img src="img/film-anne-plus.jpg" alt="Poster of the series Anne+: two young women on a bike in Amsterdam" loading="eager" style="object-position: 50% 15%" data-source="client" data-subject="series poster"></div>
+          <div class="tile__media"><img src="img/w/film-anne-plus-620.webp" srcset="img/w/film-anne-plus-480.webp 480w, img/w/film-anne-plus-620.webp 620w" sizes="(max-width: 1023px) 100vw, 410px" width="620" height="886" alt="Poster of the series Anne+: two young women on a bike in Amsterdam" loading="eager" style="object-position: 50% 15%" data-source="client" data-subject="series poster" decoding="async"></div>
           <div class="tile__head"><h3>Anne+</h3></div>
           <p class="tile__facts">Songs by CUT_ in seasons 1 and 2, 2018 and 2020</p>
         </div>
@@ -151,29 +157,29 @@
     </div>
   </section>
 
-  <section class="section is-live" id="stage" style="--h: 2; --mo-hold: 1;" data-moment="pinned-chapters" aria-labelledby="stage-h" data-moment-mounted="1">
-    <div class="wrap mo-pc__grid" data-edge-free="">
+  <section class="section" id="stage" style="--h: 2; --hm: 2; --mo-hold: 1;" data-moment="pinned-chapters" aria-labelledby="stage-h" data-moment-still="phone" data-moment-mounted="1">
+    <div class="wrap mo-pc__grid">
       <div class="mo-pc__text">
         <h2 id="stage-h">Live scores for dance and theatre</h2>
         <ol class="mo-pc__steps">
           <li class="mo-pc__step">
             <h3>The Witch’s Mark, 2025</h3>
             <p><span class="mo-pc__p-in">A 1.5-hour score for Belle and The Beats, played live: a witch trial told in music, dance and shibari.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="img/w/rel-dancing-with-the-devil-960.webp" srcset="img/w/rel-dancing-with-the-devil-480.webp 480w, img/w/rel-dancing-with-the-devil-960.webp 960w, img/w/rel-dancing-with-the-devil-1200.webp 1200w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 628px" width="1200" height="1200" alt="A woman in a red cloak and a dancer hanging from a pole in a subway car" style="object-position: 50% 45%" loading="eager" decoding="async"></figure>
           </li>
           <li class="mo-pc__step">
             <h3>Blind to the Depths, 2023</h3>
             <p><span class="mo-pc__p-in">A full-length dance piece by Paxton Ricketts and Madoka Kariya, premiered at Sadler’s Wells in London.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="img/w/stage-blind-to-the-depths-960.webp" srcset="img/w/stage-blind-to-the-depths-480.webp 480w, img/w/stage-blind-to-the-depths-960.webp 960w, img/w/stage-blind-to-the-depths-1500.webp 1500w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 628px" width="1500" height="1000" alt="Two dancers on the floor of a dark stage" loading="eager" decoding="async"></figure>
           </li>
-          <li class="mo-pc__step is-on">
+          <li class="mo-pc__step">
             <h3>The Ritual, 2024</h3>
             <p><span class="mo-pc__p-in">A CUT_ show with scent, taste and touch, made for audiences with a disability. 15 shows, Sziget among them.</span></p>
-            
+            <figure class="mo-pc__visual"><img src="img/w/stage-the-ritual-960.webp" srcset="img/w/stage-the-ritual-480.webp 480w, img/w/stage-the-ritual-960.webp 960w, img/w/stage-the-ritual-1600.webp 1600w" sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 628px" width="1600" height="1066" alt="Belle Doron singing on stage in a silver costume" style="object-position: 29% 30%" loading="eager" decoding="async"></figure>
           </li>
         </ol>
       </div>
-      <div class="mo-pc__visuals frame"><figure class="mo-pc__visual is-past"><img src="img/rel-dancing-with-the-devil.jpg" alt="A woman in a red cloak and a dancer hanging from a pole in a subway car" width="1200" height="1200" style="object-position: 50% 45%"></figure><figure class="mo-pc__visual is-past"><img src="img/stage-blind-to-the-depths.jpg" alt="Two dancers on the floor of a dark stage" width="1500" height="1000"></figure><figure class="mo-pc__visual is-on"><img src="img/stage-the-ritual.jpg" alt="Belle Doron singing on stage in a silver costume" width="1600" height="1066" style="object-position: 29% 30%"></figure></div>
+      <div class="mo-pc__visuals frame"></div>
     </div>
   </section>
 
@@ -185,18 +191,18 @@
       </div>
       <div class="grid grid--top fill" data-peek="">
         <ul class="rows span-5">
-          <li data-peek-to="switch19" tabindex="0" class="is-on"><span class="rows__name">Switch, Nederlands Dans Theater</span><p>Zuiderstrandtheater, The Hague</p><span class="rows__value">2019</span></li>
+          <li data-peek-to="switch19" tabindex="0"><span class="rows__name">Switch, Nederlands Dans Theater</span><p>Zuiderstrandtheater, The Hague</p><span class="rows__value">2019</span></li>
           <li data-peek-to="move" tabindex="0"><span class="rows__name">Switch: On the Move</span><p>Lucent Danstheater, The Hague</p><span class="rows__value">NDT</span></li>
           <li data-peek-to="switch21" tabindex="0"><span class="rows__name">Switch, Nederlands Dans Theater</span><p>New work by the company’s dancers</p><span class="rows__value">2021</span></li>
           <li data-peek-to="rehumanize" tabindex="0"><span class="rows__name">RE:HUMANIZE</span><p>Immersive show with choreographer Guido Dutilh</p><span class="rows__value">2020</span></li>
           <li data-peek-to="momentum" tabindex="0"><span class="rows__name">Momentum: Lost &amp; Found</span><p>Contemporary dance</p><span class="rows__value">CUT_</span></li>
         </ul>
         <div class="frame frame--photo frame--fill span-6 start-7 dance__frame">
-          <img class="frame__img" data-peek-for="switch19" src="img/dance-switch-2019.jpg" alt="Orange poster for Switch with the title in blue tubes" data-source="client" data-subject="dance poster">
-          <img class="frame__img" data-peek-for="move" src="img/dance-switch-on-the-move.jpg" alt="Poster for Switch: On the Move, a dancer under a pale cloth" hidden="" data-source="client" data-subject="dance poster">
-          <img class="frame__img" data-peek-for="switch21" src="img/dance-switch-2021.jpg" alt="Poster for Switch 2021 in green, blue and red" hidden="" data-source="client" data-subject="dance poster">
-          <img class="frame__img" data-peek-for="rehumanize" src="img/dance-rehumanize.jpg" alt="Grey poster for RE:HUMANIZE with a mirrored figure" hidden="" data-source="client" data-subject="dance poster">
-          <img class="frame__img" data-peek-for="momentum" src="img/dance-momentum.jpg" alt="Poster for Momentum: Lost and Found, dancers in red and blue light" hidden="" data-source="client" data-subject="dance poster">
+          <img class="frame__img" data-peek-for="switch19" src="img/w/dance-switch-2019-960.webp" srcset="img/w/dance-switch-2019-480.webp 480w, img/w/dance-switch-2019-960.webp 960w, img/w/dance-switch-2019-1500.webp 1500w" sizes="(max-width: 1023px) 100vw, 628px" width="1500" height="1668" alt="Orange poster for Switch with the title in blue tubes" data-source="client" data-subject="dance poster" loading="eager" decoding="async">
+          <img class="frame__img" data-peek-for="move" src="img/w/dance-switch-on-the-move-960.webp" srcset="img/w/dance-switch-on-the-move-480.webp 480w, img/w/dance-switch-on-the-move-960.webp 960w, img/w/dance-switch-on-the-move-1500.webp 1500w" sizes="(max-width: 1023px) 100vw, 628px" width="1500" height="1862" alt="Poster for Switch: On the Move, a dancer under a pale cloth" hidden="" data-source="client" data-subject="dance poster" loading="eager" decoding="async">
+          <img class="frame__img" data-peek-for="switch21" src="img/w/dance-switch-2021-810.webp" srcset="img/w/dance-switch-2021-480.webp 480w, img/w/dance-switch-2021-810.webp 810w" sizes="(max-width: 1023px) 100vw, 628px" width="810" height="1440" alt="Poster for Switch 2021 in green, blue and red" hidden="" data-source="client" data-subject="dance poster" loading="eager" decoding="async">
+          <img class="frame__img" data-peek-for="rehumanize" src="img/w/dance-rehumanize-960.webp" srcset="img/w/dance-rehumanize-480.webp 480w, img/w/dance-rehumanize-960.webp 960w, img/w/dance-rehumanize-1000.webp 1000w" sizes="(max-width: 1023px) 100vw, 628px" width="1000" height="1411" alt="Grey poster for RE:HUMANIZE with a mirrored figure" hidden="" data-source="client" data-subject="dance poster" loading="eager" decoding="async">
+          <img class="frame__img" data-peek-for="momentum" src="img/w/dance-momentum-960.webp" srcset="img/w/dance-momentum-480.webp 480w, img/w/dance-momentum-960.webp 960w, img/w/dance-momentum-1280.webp 1280w" sizes="(max-width: 1023px) 100vw, 628px" width="1280" height="1280" alt="Poster for Momentum: Lost and Found, dancers in red and blue light" hidden="" data-source="client" data-subject="dance poster" loading="eager" decoding="async">
         </div>
       </div>
     </div>
@@ -214,7 +220,7 @@
       <div class="span-5">
         <div class="section-head">
           <h2 id="branding-h">Sonic branding and music for ads</h2>
-          <p>Ten years of music for commercials, among them Volkswagen, Eni, Swisscom and Hunkemöller.</p>
+          <p>Ten years of music for commercials, among them Eni, Volkswagen, Swisscom and Hunkemöller.</p>
         </div>
         <ul class="rows">
           <li><span class="rows__name">Sparkasse</span><p>Sonic branding and brand music</p><span class="rows__value">Germany</span></li>
@@ -225,7 +231,7 @@
         </ul>
       </div>
       <div class="span-6 start-7">
-        <a class="frame frame--photo branding__photo" href="https://youtu.be/y-o_vdX8XnA" aria-label="Watch the Volkswagen ID.3 ad on YouTube"><img class="frame__img" src="img/yt-vw-id3.jpg" alt="A blue Volkswagen ID.3 on a forest road, from the ad" loading="eager" data-source="client" data-subject="ad still"></a>
+        <a class="frame frame--photo branding__photo" href="https://youtu.be/Cehr2FDxos0" aria-label="Watch the Eni ad on YouTube"><img class="frame__img" src="img/w/yt-eni-960.webp" srcset="img/w/yt-eni-480.webp 480w, img/w/yt-eni-960.webp 960w, img/w/yt-eni-1280.webp 1280w" sizes="(max-width: 1023px) 100vw, 840px" width="1280" height="720" alt="A scientist in a lab coat working on a glowing screen, from the Eni ad" loading="eager" data-source="client" data-subject="ad still" decoding="async"></a>
       </div>
     </div>
   </section>
@@ -237,20 +243,20 @@
         <a class="link" href="https://open.spotify.com/playlist/26kbtVySStQBaPMdtXrE3F">Listen on Spotify</a>
       </div>
       <div class="wall">
-        <a href="https://open.spotify.com/album/61LrLjkMhsASNnqVBgwVIO" aria-label="FEMINONE by CUT_, 2026, on Spotify"><img src="img/rel-feminone.jpg" alt="Cover of FEMINONE by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/album/7ALCPzdBHYah72NolNYj8F" aria-label="Dancing with The Devil by Belle and The Beats, 2025, on Spotify"><img src="img/rel-dancing-with-the-devil.jpg" alt="Cover of Dancing with The Devil" loading="eager"></a>
-        <a href="https://open.spotify.com/album/2rOTzM0jRcR5OzJ8dtAFrM" aria-label="Flip The Switch by CUT_, 2024, on Spotify"><img src="img/rel-flip-the-switch.jpg" alt="Cover of Flip The Switch by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/track/3DgjbN7e2gppallutVbat6" aria-label="Out of Touch by CUT_, 2019, on Spotify"><img src="img/rel-small-group-of-individuals.jpg" alt="Cover of A Small Group of Individuals by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/album/5Txm8EeujDX4mcaBtA4ZLJ" aria-label="Egolove by CUT_ on Spotify"><img src="img/rel-egolove.jpg" alt="Cover of Egolove by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/track/0wPCRE762KtctiDsE3CdgO" aria-label="Belako, Sirene, CUT_ remix, on Spotify"><img src="img/rel-belako-sirene.jpg" alt="Cover of Sirene by Belako" loading="eager"></a>
-        <a href="https://open.spotify.com/album/1TtLXuYCUTwrfvi9t4KmJg" aria-label="Blind = Bliss EP by CUT_ on Spotify"><img src="img/rel-blind-bliss.jpg" alt="Cover of Blind = Bliss by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/track/5BsIrgVz9luIhJffCLkXfc" aria-label="Ciaran Lavery, Count to Ten, CUT_ remix, on Spotify"><img src="img/rel-ciaran-lavery.jpg" alt="Cover of Count to Ten by Ciaran Lavery" loading="eager"></a>
-        <a href="https://open.spotify.com/track/50MJKQk7ysuXS4HWsSxJZk" aria-label="Rina Mushonga, Cassiopeia, on Spotify"><img src="img/rel-cassiopeia.jpg" alt="Cover of Cassiopeia by Rina Mushonga" loading="eager"></a>
-        <a href="https://open.spotify.com/track/2FKmnn5Q9Q8JU9MqtsvF5d" aria-label="Cry by CUT_ on Spotify"><img src="img/rel-cry.jpg" alt="Cover of Cry by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/track/1ya1BicSyHG19QTST4wTPC" aria-label="Mottron, Lighter, CUT_ remix, on Spotify"><img src="img/rel-mottron-lighter.jpg" alt="Cover of Lighter by Mottron" loading="eager"></a>
-        <a href="https://open.spotify.com/track/1CcudNqbdSAj5HbpXooL2c" aria-label="Breathe, The Policy remix, on Spotify"><img src="img/rel-the-policy.jpg" alt="Cover of Breathe, The Policy remix" loading="eager"></a>
-        <a href="https://open.spotify.com/track/2xo9qUS6eVIwOEssGvm4DJ" aria-label="Electrify by CUT_ on Spotify"><img src="img/rel-electrify.jpg" alt="Cover of Electrify by CUT_" loading="eager"></a>
-        <a href="https://open.spotify.com/track/7bCHztWRqcJbz4KbpRjOwb" aria-label="Undertow by CUT_ on Spotify"><img src="img/rel-undertow.jpg" alt="Cover of Undertow by CUT_" loading="eager"></a>
+        <a href="https://open.spotify.com/album/61LrLjkMhsASNnqVBgwVIO" aria-label="FEMINONE by CUT_, 2026, on Spotify"><img src="img/w/rel-feminone-600.webp" srcset="img/w/rel-feminone-480.webp 480w, img/w/rel-feminone-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of FEMINONE by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/album/2rOTzM0jRcR5OzJ8dtAFrM" aria-label="Flip The Switch by CUT_, 2024, on Spotify"><img src="img/w/rel-flip-the-switch-600.webp" srcset="img/w/rel-flip-the-switch-480.webp 480w, img/w/rel-flip-the-switch-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Flip The Switch by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/3DgjbN7e2gppallutVbat6" aria-label="Out of Touch by CUT_, 2019, on Spotify"><img src="img/w/rel-small-group-of-individuals-600.webp" srcset="img/w/rel-small-group-of-individuals-480.webp 480w, img/w/rel-small-group-of-individuals-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of A Small Group of Individuals by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/album/5Txm8EeujDX4mcaBtA4ZLJ" aria-label="Egolove by CUT_ on Spotify"><img src="img/w/rel-egolove-600.webp" srcset="img/w/rel-egolove-480.webp 480w, img/w/rel-egolove-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Egolove by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/0wPCRE762KtctiDsE3CdgO" aria-label="Belako, Sirene, CUT_ remix, on Spotify"><img src="img/w/rel-belako-sirene-600.webp" srcset="img/w/rel-belako-sirene-480.webp 480w, img/w/rel-belako-sirene-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Sirene by Belako" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/album/1TtLXuYCUTwrfvi9t4KmJg" aria-label="Blind = Bliss EP by CUT_ on Spotify"><img src="img/w/rel-blind-bliss-600.webp" srcset="img/w/rel-blind-bliss-480.webp 480w, img/w/rel-blind-bliss-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Blind = Bliss by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/5BsIrgVz9luIhJffCLkXfc" aria-label="Ciaran Lavery, Count to Ten, CUT_ remix, on Spotify"><img src="img/w/rel-ciaran-lavery-400.webp" srcset="img/w/rel-ciaran-lavery-400.webp 400w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="400" height="400" alt="Cover of Count to Ten by Ciaran Lavery" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/50MJKQk7ysuXS4HWsSxJZk" aria-label="Rina Mushonga, Cassiopeia, on Spotify"><img src="img/w/rel-cassiopeia-500.webp" srcset="img/w/rel-cassiopeia-480.webp 480w, img/w/rel-cassiopeia-500.webp 500w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="500" height="500" alt="Cover of Cassiopeia by Rina Mushonga" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/2FKmnn5Q9Q8JU9MqtsvF5d" aria-label="Cry by CUT_ on Spotify"><img src="img/w/rel-cry-600.webp" srcset="img/w/rel-cry-480.webp 480w, img/w/rel-cry-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Cry by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/1ya1BicSyHG19QTST4wTPC" aria-label="Mottron, Lighter, CUT_ remix, on Spotify"><img src="img/w/rel-mottron-lighter-599.webp" srcset="img/w/rel-mottron-lighter-480.webp 480w, img/w/rel-mottron-lighter-599.webp 599w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="599" height="600" alt="Cover of Lighter by Mottron" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/1CcudNqbdSAj5HbpXooL2c" aria-label="Breathe, The Policy remix, on Spotify"><img src="img/w/rel-the-policy-600.webp" srcset="img/w/rel-the-policy-480.webp 480w, img/w/rel-the-policy-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Breathe, The Policy remix" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/2xo9qUS6eVIwOEssGvm4DJ" aria-label="Electrify by CUT_ on Spotify"><img src="img/w/rel-electrify-600.webp" srcset="img/w/rel-electrify-480.webp 480w, img/w/rel-electrify-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Electrify by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/7bCHztWRqcJbz4KbpRjOwb" aria-label="Undertow by CUT_ on Spotify"><img src="img/w/rel-undertow-600.webp" srcset="img/w/rel-undertow-480.webp 480w, img/w/rel-undertow-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Undertow by CUT_" loading="eager" decoding="async"></a>
+        <a href="https://open.spotify.com/track/2jo0lt1pFPWzVpYR3hLSeD" aria-label="Tune In Tune Out by CUT_ on Spotify"><img src="img/w/rel-tune-in-tune-out-600.webp" srcset="img/w/rel-tune-in-tune-out-480.webp 480w, img/w/rel-tune-in-tune-out-600.webp 600w" sizes="(max-width: 639px) 50vw, (max-width: 1023px) 25vw, 210px" width="600" height="600" alt="Cover of Tune In Tune Out by CUT_" loading="eager" decoding="async"></a>
       </div>
     </div>
   </section>
@@ -267,7 +273,7 @@
         </div>
       </div>
       <div class="span-6 start-7">
-        <div class="about__photo"><img src="img/portrait.jpg" alt="Sebastiaan Dutilh in a green jacket against a dark teal wall" loading="eager" data-source="client" data-subject="portrait"></div>
+        <div class="about__photo"><img src="img/w/portrait-960.webp" srcset="img/w/portrait-480.webp 480w, img/w/portrait-960.webp 960w, img/w/portrait-1500.webp 1500w" sizes="(max-width: 1023px) 100vw, 628px" width="1500" height="1883" alt="Sebastiaan Dutilh in a green jacket against a dark teal wall" loading="eager" data-source="client" data-subject="portrait" decoding="async"></div>
       </div>
     </div>
   </section>

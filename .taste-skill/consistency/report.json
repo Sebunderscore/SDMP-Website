@@ -1,33 +1,24 @@
 {
  "page": "/home/claude/sdmp-website/index.html",
  "url": "http://127.0.0.1:5200/index.html",
- "at": "2026-11-12T13:36:15.843Z",
+ "at": "2026-11-12T14:07:08.103Z",
  "out": "/home/claude/sdmp-website/.taste-skill/consistency",
  "widths": [
   {
-   "width": 1440,
-   "height": 900,
-   "screens": 13,
-   "held": 1,
+   "width": 390,
+   "height": 844,
+   "screens": 17,
+   "held": 0,
    "errors": [],
    "findings": [
-    {
-     "check": "assets",
-     "sev": "FAIL",
-     "sel": "(the page)",
-     "text": "",
-     "stop": null,
-     "msg": "the stylesheet https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Libre+Franklin:wght@400..600&display=swap did not load (ERR_BLOCKED_BY_ORB): everything here was measured without it",
-     "fix": "fix the path, or remove the reference"
-    },
     {
      "check": "copy-headings",
      "sev": "FAIL",
      "sel": "div.grid > a.tile.span-4:nth-of-type(1) > div.tile__head > h3",
      "text": "De Wilde Stad",
      "msg": "\"De Wilde Stad\" names no product, part, place or section (3 headings like it; at most one brand line per page) (and 2 more like it: \"Élite, Netflix\", \"Anne+\")",
-     "stop": 3,
-     "crop": "1440-08-copy-headings.jpg",
+     "stop": 2,
+     "crop": "390-04-copy-headings.jpg",
      "fix": "name the thing in every heading: the product, a part, the place or a section noun"
     },
     {
@@ -35,9 +26,9 @@
      "sev": "FAIL",
      "sel": "div.closing__links > div.grid > div.span-4.stack-4 > a.nav__logo",
      "text": "S Sebastiaan Dutilh",
-     "stop": 12,
-     "msg": "left edge at 103.5px, 23.5px off the page margin at 80px (48 elements, like span.mark.mark--initial)",
-     "crop": "1440-15-off-grid.jpg",
+     "stop": 15,
+     "msg": "left edge at 42.5px, 18.5px off the page margin at 24px (68 elements, like span.mark.mark--initial)",
+     "crop": "390-11-off-grid.jpg",
      "fix": "move it onto the page margin, or the column edge its section uses"
     },
     {
@@ -46,29 +37,9 @@
      "sel": "section#studio > div.wrap > p.mo-wh__text",
      "text": "I write on a modular synthesizer I built myself.",
      "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 7,
-     "crop": "1440-12-scroll-reveal.jpg",
+     "stop": 8,
+     "crop": "390-07-scroll-reveal.jpg",
      "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "scroll-reveal",
-     "sev": "WARN",
-     "sel": "section#stage",
-     "text": "Live scores for dance and theatre The Witch’s Ma",
-     "msg": "starts \"border-left-color\" (0.3 s) the moment it is scrolled into view (an IntersectionObserver) on li.mo-pc__step:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 4,
-     "crop": "1440-10-scroll-reveal.jpg",
-     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "pinned",
-     "sev": "WARN",
-     "sel": "section#stage > div.wrap.mo-pc__grid",
-     "text": "Live scores for dance and theatre The Witch’s Ma",
-     "stop": 13,
-     "msg": "held on screen for 1 screen of scroll (position: sticky) while the page moves on (inside a dealt moment's section, [data-moment]: expected on every kind, two moments at most, house rule; its still is judged under reduced motion)",
-     "crop": "1440-17-pinned.jpg",
-     "fix": "let the section scroll with the page"
     },
     {
      "check": "cta",
@@ -77,7 +48,17 @@
      "text": "Live scores for dance and theatre",
      "msg": "a section over 1.5 screens long with no link or button in it",
      "stop": 4,
-     "crop": "1440-11-cta.jpg",
+     "crop": "390-05-cta.jpg",
+     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
+    },
+    {
+     "check": "cta",
+     "sev": "WARN",
+     "sel": "section#dance",
+     "text": "Music for Nederlands Dans Theater and others",
+     "msg": "a section over 1.5 screens long with no link or button in it",
+     "stop": 7,
+     "crop": "390-06-cta.jpg",
      "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
     },
     {
@@ -86,18 +67,8 @@
      "sel": "main#top > section.hero.hero--split / section#reel",
      "text": "",
      "stop": 1,
-     "msg": "183px between these sections, -39% against the median 298px",
-     "crop": "1440-06-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#film / section#stage",
-     "text": "",
-     "stop": 3,
-     "msg": "450px between these sections, +51% against the median 298px",
-     "crop": "1440-09-section-gaps.jpg",
+     "msg": "118px between these sections, -44% against the median 209px",
+     "crop": "390-03-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -105,9 +76,19 @@
      "sev": "WARN",
      "sel": "section#records / section#about",
      "text": "",
-     "stop": 10,
-     "msg": "uneven space at the edge of a band: 119px outside its edge, 203px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "1440-14-section-gaps.jpg",
+     "stop": 13,
+     "msg": "uneven space at the edge of a band: 94px outside its edge, 191px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "390-09-section-gaps.jpg",
+     "fix": "use one gap between sections (all within 25% of each other)"
+    },
+    {
+     "check": "section-gaps",
+     "sev": "WARN",
+     "sel": "section#about / footer#contact",
+     "text": "",
+     "stop": 14,
+     "msg": "uneven space at the edge of a band: 152px outside its edge, 94px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
+     "crop": "390-10-section-gaps.jpg",
      "fix": "use one gap between sections (all within 25% of each other)"
     },
     {
@@ -116,8 +97,7 @@
      "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
      "text": "Email Sebastiaan",
      "msg": "\"Email Sebastiaan\" goes to #contact, in the footer",
-     "stop": 0,
-     "crop": "1440-01-links.jpg",
+     "stop": null,
      "fix": "point every link at a real section, page or file"
     },
     {
@@ -127,7 +107,7 @@
      "text": "Email Sebastiaan",
      "msg": "\"Email Sebastiaan\" goes to #contact, in the footer",
      "stop": 0,
-     "crop": "1440-02-links.jpg",
+     "crop": "390-01-links.jpg",
      "fix": "point every link at a real section, page or file"
     },
     {
@@ -136,8 +116,8 @@
      "sel": "footer#contact > div.wrap > div.closing__cta.close--type > a.btn.btn--primary",
      "text": "Email Sebastiaan",
      "msg": "\"Email Sebastiaan\" goes to #contact, the block it already sits in",
-     "stop": 12,
-     "crop": "1440-16-links.jpg",
+     "stop": 15,
+     "crop": "390-12-links.jpg",
      "fix": "point every link at a real section, page or file"
     },
     {
@@ -152,11 +132,11 @@
     {
      "check": "photo-set",
      "sev": "WARN",
-     "sel": "div.wrap > div.wall > a:nth-of-type(6) > img",
-     "text": "rel-belako-sirene.jpg",
-     "stop": 9,
-     "msg": "18 photographs in more than one look: lightness from 0.07 to 0.92; saturation from 0.03 to 0.96; warm and cool photographs mixed (b* -10 to +69); the odd one out is rel-belako-sirene.jpg",
-     "crop": "1440-13-photo-set.jpg",
+     "sel": "div.wrap > div.wall > a:nth-of-type(5) > img",
+     "text": "rel-belako-sirene-480.webp",
+     "stop": 12,
+     "msg": "23 photographs in more than one look: lightness from 0.17 to 0.94; saturation from 0.00 to 0.96; warm and cool photographs mixed (b* -9 to +69); the odd one out is rel-belako-sirene-480.webp",
+     "crop": "390-08-photo-set.jpg",
      "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
     },
     {
@@ -165,8 +145,7 @@
      "sel": "div.wrap.nav__bar > nav.nav__links > div.nav__item:nth-of-type(2) > a.nav__link",
      "text": "Stage",
      "msg": "\"Stage\" opens a section headed \"Live scores for dance and theatre\"",
-     "stop": 0,
-     "crop": "1440-03-nav-labels.jpg",
+     "stop": null,
      "fix": "name each nav link after the heading of the section it opens"
     },
     {
@@ -176,167 +155,8 @@
      "text": "S Sebastiaan Dutilh",
      "msg": "\"S Sebastiaan Dutilh\" opens a section headed \"Film and stage composer in Amsterdam\"",
      "stop": 0,
-     "crop": "1440-04-nav-labels.jpg",
+     "crop": "390-02-nav-labels.jpg",
      "fix": "name each nav link after the heading of the section it opens"
-    },
-    {
-     "check": "nav-current",
-     "sev": "WARN",
-     "sel": "header.nav.nav--split",
-     "text": "",
-     "stop": 1,
-     "msg": "the nav stays on screen with 4 links to the page's sections, but never marks the one you are in (no link changes as the page scrolls)",
-     "crop": "1440-07-nav-current.jpg",
-     "fix": "mark the link of the section on screen (a colour, a weight or a line under it) as the visitor scrolls"
-    },
-    {
-     "check": "font-load",
-     "sev": "WARN",
-     "sel": "h1#hero-h",
-     "text": "Source Serif 4",
-     "msg": "\"Source Serif 4\" is asked for by --font-display, the h1 and the h2s but never loaded (no font link or @font-face loads it): it shows in its fallback",
-     "stop": 0,
-     "crop": "1440-05-font-load.jpg",
-     "fix": "load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads"
-    },
-    {
-     "check": "font-load",
-     "sev": "WARN",
-     "sel": "body",
-     "text": "Libre Franklin",
-     "msg": "\"Libre Franklin\" is asked for by --font-text and the body text but never loaded (no font link or @font-face loads it): it shows in its fallback",
-     "stop": null,
-     "fix": "load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads"
-    },
-    {
-     "check": "action-repeat",
-     "sev": "WARN",
-     "sel": "header.nav.nav--split > div.wrap.nav__bar > div.nav__actions > a.btn.btn--primary",
-     "text": "email sebastiaan",
-     "stop": 16,
-     "msg": "\"email sebastiaan\" shows 2 times on the first screen at 1440px (nav, hero): the nav's button and the hero's; nothing else on the screen may repeat it",
-     "crop": "1440-18-action-repeat.jpg",
-     "fix": "show the action once a screen besides the nav's button: the hero's, the close's or the phone bar's, never all at once"
-    },
-    {
-     "check": "container-edges",
-     "sev": "WARN",
-     "sel": "div.wrap.mo-pc__grid > div.mo-pc__text > ol.mo-pc__steps > li.mo-pc__step:nth-of-type(1)",
-     "text": "The Witch’s Mark, 2025 A 1.5-hour score ",
-     "msg": "3 text blocks start on a left line at x 106, 26px from the container's left: text starts on the container's left, or on one split line (x 623, 732, 841) (also \"Blind to the Depths, 2023 A full\", \"The Ritual, 2024 A CUT_ show wit\") (it is in a scroll scene: told as a WARN) (SR-6)",
-     "fix": "start the text on the container's left, or on the one split line every split shares",
-     "rule": "SR-6 T3-left-lines",
-     "crop": "1440-rhythm-01-container-edges.jpg"
-    }
-   ],
-   "glAsked": 0
-  },
-  {
-   "width": 390,
-   "height": 844,
-   "screens": 16,
-   "held": 0,
-   "errors": [],
-   "findings": [
-    {
-     "check": "off-grid",
-     "sev": "FAIL",
-     "sel": "div.closing__links > div.grid > div.span-4.stack-4 > a.nav__logo",
-     "text": "S Sebastiaan Dutilh",
-     "stop": 14,
-     "msg": "left edge at 42.5px, 18.5px off the page margin at 24px (68 elements, like span.mark.mark--initial)",
-     "crop": "390-10-off-grid.jpg",
-     "fix": "move it onto the page margin, or the column edge its section uses"
-    },
-    {
-     "check": "scroll-reveal",
-     "sev": "WARN",
-     "sel": "section#studio > div.wrap > p.mo-wh__text",
-     "text": "I write on a modular synthesizer I built myself.",
-     "msg": "starts \"color\" (0.2 s) the moment it is scrolled into view (an IntersectionObserver) on span.mo-w:nth-of-type(1) (inside a dealt moment's section, [data-moment]: an enter moment is expected on every kind; its still is judged under reduced motion)",
-     "stop": 8,
-     "crop": "390-04-scroll-reveal.jpg",
-     "fix": "show it at rest: no fade, rise or unmask when it is scrolled into view"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#stage",
-     "text": "Live scores for dance and theatre",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 4,
-     "crop": "390-02-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
-    },
-    {
-     "check": "cta",
-     "sev": "WARN",
-     "sel": "section#dance",
-     "text": "Music for Nederlands Dans Theater and others",
-     "msg": "a section over 1.5 screens long with no link or button in it",
-     "stop": 6,
-     "crop": "390-03-cta.jpg",
-     "fix": "add the action: a button in the hero, one on every priced item, one in the closing section"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "main#top > section.hero.hero--split / section#reel",
-     "text": "",
-     "stop": 1,
-     "msg": "120px between these sections, -42% against the median 208px",
-     "crop": "390-01-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#records / section#about",
-     "text": "",
-     "stop": 12,
-     "msg": "287px between these sections, +38% against the median 208px of gaps at a change of ground",
-     "crop": "390-07-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "section-gaps",
-     "sev": "WARN",
-     "sel": "section#records / section#about",
-     "text": "",
-     "stop": 12,
-     "msg": "uneven space at the edge of a band: 96px outside its edge, 191px inside it (the space on either side of a change of ground reads as one gap only when the two match)",
-     "crop": "390-08-section-gaps.jpg",
-     "fix": "use one gap between sections (all within 25% of each other)"
-    },
-    {
-     "check": "photo-set",
-     "sev": "WARN",
-     "sel": "div.wrap > div.wall > a:nth-of-type(6) > img",
-     "text": "rel-belako-sirene.jpg",
-     "stop": 11,
-     "msg": "23 photographs in more than one look: lightness from 0.08 to 0.94; saturation from 0.00 to 0.96; warm and cool photographs mixed (b* -10 to +69); the odd one out is rel-belako-sirene.jpg",
-     "crop": "390-05-photo-set.jpg",
-     "fix": "grade the photographs to one look (light, colour, warmth), or replace the odd one out"
-    },
-    {
-     "check": "photo-weight",
-     "sev": "WARN",
-     "sel": "div.wrap > div.wall > a:nth-of-type(10) > img",
-     "text": "rel-cry.jpg",
-     "msg": "9 photographs are 3x or more wider than drawn on the phone, with no srcset: rel-cry.jpg is 1500px (654 KB) for a 170px frame; on a phone it arrives late and its frame shows only its ground until then",
-     "fix": "give each photograph srcset and sizes (a 800px and a 1600px file), or a smaller file: the frame never shows empty",
-     "stop": 12,
-     "crop": "390-09-photo-weight.jpg"
-    },
-    {
-     "check": "photo-repeat",
-     "sev": "WARN",
-     "sel": "div.wrap > div.wall > a:nth-of-type(2) > img",
-     "text": "rel-dancing-with-the-devil.jpg",
-     "msg": "the photograph rel-dancing-with-the-devil.jpg is shown 2 times on the page: a picture the visitor has already seen",
-     "fix": "show each photograph once: a different picture of what this section names, or none",
-     "stop": 11,
-     "crop": "390-06-photo-repeat.jpg"
     }
    ],
    "glAsked": 0
@@ -351,11 +171,22 @@
   "forms",
   "reduced-motion",
   "the dead-IntersectionObserver walk (hidden content is read with scripts off and under reduced motion)",
-  "hover-move"
+  "hover-move",
+  "hero-screen (rhythm: no width of this run is one it runs at)",
+  "section-height (rhythm: no width of this run is one it runs at)",
+  "section-air (rhythm: no width of this run is one it runs at)",
+  "one-section (rhythm: no width of this run is one it runs at)",
+  "one-heading (rhythm: no width of this run is one it runs at)",
+  "container-edges (rhythm: no width of this run is one it runs at)",
+  "row-lines (rhythm: no width of this run is one it runs at)",
+  "split-pair (rhythm: no width of this run is one it runs at)",
+  "motion-layer (motion-hooks: no width of this run is one it runs at)",
+  "count-text (motion-hooks: no width of this run is one it runs at)",
+  "loop-cycle (motion-hooks: no width of this run is one it runs at)"
  ],
  "shaders": 0,
  "hidden": {
-  "screens": 22,
+  "screens": 28,
   "quick": true
  },
  "sweep": {
@@ -376,11 +207,11 @@
   "findings": []
  },
  "counts": {
-  "FAIL": 4,
-  "WARN": 28
+  "FAIL": 2,
+  "WARN": 13
  },
  "checks": {
-  "assets": "FAIL",
+  "assets": "PASS",
   "shader-lint": "PASS",
   "gl-fallback": "PASS",
   "empty-visual": "PASS",
@@ -405,7 +236,7 @@
   "marquee": "PASS",
   "scroll-linked": "not checked",
   "scroll-reveal": "WARN",
-  "pinned": "WARN",
+  "pinned": "PASS",
   "loop-pause": "not checked",
   "reduced-motion": "not checked",
   "hidden-content": "PASS",
@@ -464,11 +295,11 @@
   "tab-wrap": "PASS",
   "effects-fit": "PASS",
   "fade-cut": "PASS",
-  "photo-weight": "WARN",
+  "photo-weight": "PASS",
   "copy-length": "PASS",
-  "nav-current": "WARN",
+  "nav-current": "PASS",
   "progress-bar": "PASS",
-  "photo-repeat": "WARN",
+  "photo-repeat": "PASS",
   "button-contrast": "PASS",
   "photo-print": "PASS",
   "grounds": "PASS",
@@ -481,7 +312,7 @@
   "hover-move": "not checked",
   "product-shown": "PASS",
   "same-object": "PASS",
-  "font-load": "WARN",
+  "font-load": "PASS",
   "visual-caption": "PASS",
   "visual-empty": "PASS",
   "effect-kind": "PASS",
@@ -492,17 +323,17 @@
   "coordinates": "PASS",
   "company-number": "PASS",
   "phone-number": "PASS",
-  "hero-screen": "PASS",
-  "section-height": "PASS",
-  "section-air": "PASS",
-  "one-section": "PASS",
-  "one-heading": "PASS",
-  "container-edges": "WARN",
-  "row-lines": "PASS",
-  "split-pair": "PASS",
-  "motion-layer": "PASS",
-  "count-text": "PASS",
-  "loop-cycle": "PASS",
+  "hero-screen": "not checked",
+  "section-height": "not checked",
+  "section-air": "not checked",
+  "one-section": "not checked",
+  "one-heading": "not checked",
+  "container-edges": "not checked",
+  "row-lines": "not checked",
+  "split-pair": "not checked",
+  "motion-layer": "not checked",
+  "count-text": "not checked",
+  "loop-cycle": "not checked",
   "section-tile": "PASS",
   "empty-area": "PASS",
   "a11y-name": "PASS",
@@ -518,7 +349,7 @@
   "lang": "PASS",
   "page-meta": "PASS",
   "share-meta": "PASS",
-  "action-repeat": "WARN",
+  "action-repeat": "PASS",
   "map-link": "PASS",
   "open-now": "PASS",
   "assumed": "PASS",
