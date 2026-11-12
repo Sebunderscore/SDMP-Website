@@ -61,15 +61,11 @@ const SITE = {
   },
 
   commercials: {
-    show: 6,
-    clients: 'Sparkasse · Bupa · UBS · Philips · Volkswagen · Mazda · T-Mobile · Eni · Hunkemöller · Swisscom · TK Maxx · Karwei · Pattex',
-    // Werk zonder video. Video erbij? Zet het item met yt: 'videoID' in items hieronder.
-    credits: [
-      { client: 'Sparkasse', region: 'DE', work: 'Sonic branding & brand music' },
-      { client: 'Bupa', region: 'AU', work: 'Sonic branding' },
-      { client: 'UBS', region: '', work: 'Ad music, UBS Platform' },
-      { client: 'Philips', region: '', work: 'Ad music, Philips Steam' },
-      { client: 'T-Mobile', region: 'CZ', work: 'Ad music' }
+    show: 3, // aantal video's dat zichtbaar is voor "Show all"
+    // Merken per soort werk. Nieuw merk? Zet de naam in de juiste lijst.
+    brands: [
+      { label: 'Sonic branding', names: ['Sparkasse', 'Bupa'] },
+      { label: 'Music for ads', names: ['UBS', 'Philips', 'Volkswagen', 'Mazda', 'T-Mobile', 'Eni', 'Swisscom', 'Hunkemöller', 'TK Maxx', 'Karwei', 'Pattex'] }
     ],
     items: [
       { title: 'Eni', yt: 'Cehr2FDxos0' },

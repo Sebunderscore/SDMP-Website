@@ -103,9 +103,8 @@
     </article>`).join('');
   renderList('stage', SITE.stage.items.filter(i => !i.featured), card, SITE.stage.show);
 
-  $('[data-clients]').textContent = SITE.commercials.clients;
-  $('[data-credits]').innerHTML = (SITE.commercials.credits || []).map(c => `
-    <li><strong>${esc(c.client)}${c.region ? ` <span>${esc(c.region)}</span>` : ''}</strong><em>${esc(c.work)}</em></li>`).join('');
+  $('[data-brands]').innerHTML = SITE.commercials.brands.map(g => `
+    <div class="brand-group"><p class="brand-label">${g.label}</p><ul>${g.names.map(n => `<li>${n}</li>`).join('')}</ul></div>`).join('');
   renderList('commercials', SITE.commercials.items, v => ytCard(v), SITE.commercials.show);
 
   const disc = SITE.discography.items;
