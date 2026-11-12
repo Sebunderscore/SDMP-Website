@@ -1,6 +1,0 @@
-yt-showreel.jpg https://i.ytimg.com/vi/a45DMk4CSk4/maxresdefault.jpg
-yt-eni.jpg https://i.ytimg.com/vi/Cehr2FDxos0/maxresdefault.jpg
-yt-vw-id3.jpg https://i.ytimg.com/vi/y-o_vdX8XnA/maxresdefault.jpg
-yt-hunkemoller.jpg https://i.ytimg.com/vi/mrHyotB5eXg/maxresdefault.jpg
-yt-tkmaxx.jpg https://i.ytimg.com/vi/MgIigoL1Lro/maxresdefault.jpg
-yt-swisscom.jpg https://i.ytimg.com/vi/kS9fcpjsAWM/maxresdefault.jpg
