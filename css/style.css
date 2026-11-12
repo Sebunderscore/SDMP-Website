@@ -118,7 +118,7 @@ footer a:hover { color: var(--ink); }
   .posters { grid-template-columns: repeat(2, 1fr); }
   .dance-posters { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   .menu-toggle { display: grid; gap: 7px; width: 40px; height: 40px; place-content: center; background: none; border: 0; cursor: pointer; z-index: 2; }
   .menu-toggle span { width: 24px; height: 1px; background: var(--ink); transition: transform .25s; }
   .nav-open .menu-toggle span:first-child { transform: translateY(4px) rotate(45deg); }
