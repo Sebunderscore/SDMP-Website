@@ -5,4 +5,3 @@ yt-mazda.jpg https://i.ytimg.com/vi/QTVu8Lx4eVw/maxresdefault.jpg
 yt-hunkemoller.jpg https://i.ytimg.com/vi/mrHyotB5eXg/maxresdefault.jpg
 yt-tkmaxx.jpg https://i.ytimg.com/vi/MgIigoL1Lro/maxresdefault.jpg
 yt-swisscom.jpg https://i.ytimg.com/vi/kS9fcpjsAWM/maxresdefault.jpg
-# retry
