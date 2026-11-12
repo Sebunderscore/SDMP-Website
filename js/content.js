@@ -5,7 +5,7 @@
   Afbeeldingen: img('...') wijst nu nog naar de Squarespace-CDN.
   Draai eenmalig ./download-images.sh, dan staan ze lokaal in /img en wordt USE_LOCAL automatisch true.
 */
-const USE_LOCAL = false;
+const USE_LOCAL = true;
 const CDN = 'https://images.squarespace-cdn.com/content/v1/5e6cfe4cba0df96243ce0859/';
 function img(path, w = 1000) {
   if (USE_LOCAL) {
