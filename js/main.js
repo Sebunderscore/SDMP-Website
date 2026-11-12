@@ -35,8 +35,12 @@
 
   // Showreel bovenaan
   $('[data-reel]').innerHTML = ytCard(SITE.reel, true);
-  $('[data-stat]').textContent = SITE.stat;
-  $('[data-names]').innerHTML = SITE.names.map(n => `<span>${esc(n)}</span>`).join('');
+  // items mogen <em> bevatten voor de grijze toelichting
+  $('[data-proof]').innerHTML = SITE.proof.map(c => `
+    <a class="proof-col" href="${c.link}">
+      <span class="proof-label">${esc(c.label)}</span>
+      ${c.items.map(i => `<span class="proof-item">${i}</span>`).join('')}
+    </a>`).join('');
 
   // Kaart voor film en podium
   const card = it => {

@@ -16,8 +16,12 @@ const SITE = {
 
   // Bovenaan de site: showreel + één regel met namen
   reel: { yt: 'a45DMk4CSk4', title: 'Showreel' },
-  stat: '80M+ streams on Out of Touch',
-  names: ['Netflix', 'Sadler’s Wells', 'Nederlands Dans Theater', 'Sziget', 'Sparkasse', 'UBS'],
+  // Drie kolommen onder de showreel: per discipline een paar sterke credits
+  proof: [
+    { label: 'Film & TV', items: ['De Wilde Stad <em>original score</em>', 'Élite, Netflix <em>sync, 80M+ streams</em>', 'Anne+ <em>sync</em>'], link: '#film' },
+    { label: 'Stage & Dance', items: ['Blind to the Depths <em>Sadler’s Wells</em>', 'The Witch’s Mark <em>live score</em>', 'The Ritual <em>15 shows, incl. Sziget</em>'], link: '#stage' },
+    { label: 'Sonic branding', items: ['Sparkasse <em>sonic branding & brand music</em>', 'Bupa <em>sonic branding</em>', 'UBS · Volkswagen · Philips <em>ad music</em>'], link: '#branding' }
+  ],
 
   about: [
     'I’m Seb, a composer, producer and sound designer based in Amsterdam. Since 2014 I have made music with Belle Doron as the electronic duo <a href="http://cutunderscore.com/" target="_blank" rel="noopener">CUT_</a>: two albums on [PIAS], two self-released ones, tours through Europe and Mexico, and a song in Netflix’s Élite that has now passed 80 million streams.',
