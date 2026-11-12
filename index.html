@@ -25,8 +25,8 @@
     <a class="brand" href="#home">Sebastiaan Dutilh<span>Music Production</span></a>
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
     <nav id="nav">
-      <a href="#stage">Stage &amp; Dance</a>
       <a href="#film">Film Scoring</a>
+      <a href="#stage">Stage</a>
       <a href="#discography">Discography</a>
       <a href="#branding">Sonic Branding</a>
       <a href="#about">About</a>
@@ -51,18 +51,18 @@
       <div class="proof" data-proof></div>
       <a class="button" href="#contact">Making a film? Let’s talk</a>
     </section>
-    <section id="stage" class="section">
-      <p class="kicker">Dance, theatre &amp; live</p>
-      <h2>Stage &amp; Dance</h2>
-      <div data-stage-featured></div>
-      <div class="cards" data-list="stage"></div>
-    </section>
     <section id="film" class="section">
       <p class="kicker">Score &amp; sync for film and TV</p>
       <h2>Film Scoring</h2>
       <p class="lead" data-film-intro></p>
       <div class="cards" data-list="film"></div>
       <a class="button" href="#contact" data-film-cta></a>
+    </section>
+    <section id="stage" class="section">
+      <p class="kicker">Scores for dance, theatre &amp; live shows</p>
+      <h2>Compositions for Stage</h2>
+      <div data-stage-featured></div>
+      <div class="cards" data-list="stage"></div>
     </section>
     <section id="discography" class="section">
       <p class="kicker">Written, produced &amp; mixed</p>
@@ -74,8 +74,9 @@
     <section id="branding" class="section">
       <p class="kicker">Commercials, brand music &amp; audio identities</p>
       <h2>Bespoke Music &amp; Sonic Branding</h2>
-      <div class="brands" data-brands></div>
-      <div class="video-grid" data-list="commercials"></div>
+      <ul class="brands" data-brands></ul>
+      <button class="more" type="button" data-clients-toggle aria-expanded="false"></button>
+      <ul class="credits" data-clients hidden></ul>
     </section>
 
     <section id="about" class="section">

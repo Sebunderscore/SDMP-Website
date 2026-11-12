@@ -19,7 +19,7 @@ const SITE = {
   // Drie kolommen onder de showreel: per discipline een paar sterke credits
   proof: [
     { label: 'Film & TV', items: ['De Wilde Stad <em>original score</em>', 'Élite, Netflix <em>sync, 80M+ streams</em>', 'Anne+ <em>sync</em>'], link: '#film' },
-    { label: 'Stage & Dance', items: ['Blind to the Depths <em>Sadler’s Wells</em>', 'The Witch’s Mark <em>live score</em>', 'The Ritual <em>15 shows, incl. Sziget</em>'], link: '#stage' },
+    { label: 'Stage', items: ['Blind to the Depths <em>Sadler’s Wells</em>', 'The Witch’s Mark <em>live score</em>', 'The Ritual <em>15 shows, incl. Sziget</em>'], link: '#stage' },
     { label: 'Sonic branding', items: ['Sparkasse <em>sonic branding & brand music</em>', 'Bupa <em>sonic branding</em>', 'UBS · Volkswagen · Philips <em>ad music</em>'], link: '#branding' }
   ],
 
@@ -61,22 +61,31 @@ const SITE = {
   },
 
   commercials: {
-    show: 3, // aantal video's dat zichtbaar is voor "Show all"
-    // Merken per soort werk. Nieuw merk? Zet de naam in de juiste lijst.
-    brands: [
-      { label: 'Sonic branding', names: ['Sparkasse', 'Bupa'] },
-      { label: 'Music for ads', names: ['UBS', 'Philips', 'Volkswagen', 'Mazda', 'T-Mobile', 'Eni', 'Swisscom', 'Hunkemöller', 'TK Maxx', 'Karwei', 'Pattex'] }
+    // Zes uitgelichte merken met logo (img/logos). Zonder logo-bestand staat de naam er in tekst.
+    featured: [
+      { client: 'Sparkasse', logo: 'img/logos/sparkasse.svg', work: 'Sonic branding & brand music' },
+      { client: 'Bupa', work: 'Sonic branding' },
+      { client: 'Volkswagen', logo: 'img/logos/volkswagen.svg', work: 'Ad music, ID.3' },
+      { client: 'Philips', logo: 'img/logos/philips.svg', wide: true, work: 'Ad music, Philips Steam' },
+      { client: 'T-Mobile', logo: 'img/logos/tmobile.svg', wide: true, work: 'Ad music, Czech Republic' },
+      { client: 'Mazda', logo: 'img/logos/mazda.svg', work: 'Ad music, CX-5' }
     ],
-    items: [
-      { title: 'Eni', yt: 'Cehr2FDxos0' },
-      { title: 'Volkswagen ID.3', yt: 'y-o_vdX8XnA' },
-      { title: 'Mazda CX-5 #DriveTogether', yt: 'QTVu8Lx4eVw' },
-      { title: 'Hunkemöller Sport', yt: 'mrHyotB5eXg' },
-      { title: "TK Maxx Xmas 2020: The Lil' Goat", yt: 'MgIigoL1Lro' },
-      { title: 'Swisscom Calling', yt: 'kS9fcpjsAWM' },
-      { title: 'Karwei: Ontdek jouw diepste woonwensen', yt: 'kT-Kw5S2Lu4' },
-      { title: '70 Jahre Grundgesetz', yt: 'XMdO5vbEZDs' },
-      { title: 'Pattex One for All Click&Fix', yt: 'rvf2QGQmd88' }
+    // De volledige lijst achter de knop "All clients". url is optioneel (link naar de video).
+    all: [
+      { client: 'Sparkasse', work: 'Sonic branding & brand music' },
+      { client: 'Bupa', work: 'Sonic branding' },
+      { client: 'UBS', work: 'Ad music, UBS Platform' },
+      { client: 'Philips', work: 'Ad music, Philips Steam' },
+      { client: 'T-Mobile', work: 'Ad music, Czech Republic' },
+      { client: 'Volkswagen', work: 'Ad music, ID.3', url: 'https://youtu.be/y-o_vdX8XnA' },
+      { client: 'Mazda', work: 'Ad music, CX-5 #DriveTogether', url: 'https://youtu.be/QTVu8Lx4eVw' },
+      { client: 'Eni', work: 'Ad music', url: 'https://youtu.be/Cehr2FDxos0' },
+      { client: 'Hunkemöller', work: 'Ad music, Hunkemöller Sport', url: 'https://youtu.be/mrHyotB5eXg' },
+      { client: 'TK Maxx', work: 'Ad music, Xmas 2020', url: 'https://youtu.be/MgIigoL1Lro' },
+      { client: 'Swisscom', work: 'Ad music, Swisscom Calling', url: 'https://youtu.be/kS9fcpjsAWM' },
+      { client: 'Karwei', work: 'Ad music', url: 'https://youtu.be/kT-Kw5S2Lu4' },
+      { client: 'Pattex', work: 'Ad music, One for All', url: 'https://youtu.be/rvf2QGQmd88' },
+      { client: '70 Jahre Grundgesetz', work: 'Campaign music', url: 'https://youtu.be/XMdO5vbEZDs' }
     ]
   },
 
@@ -97,7 +106,6 @@ const SITE = {
       { title: 'CUT_ - Cry', img: 'img/rel-cry.jpg', url: 'https://open.spotify.com/track/2FKmnn5Q9Q8JU9MqtsvF5d' },
       { title: 'CUT_ - Last Night', img: 'img/rel-last-night.jpg', url: 'https://open.spotify.com/track/2ItISvdmueiDlRLlLUC3Mz' },
       { title: 'CUT_ - Out of Touch', year: 2019, img: 'img/rel-small-group-of-individuals.jpg', url: 'https://open.spotify.com/track/3DgjbN7e2gppallutVbat6', note: '80M+ streams · Netflix’s Élite' },
-      { title: 'CUT_ - A Small Group of Individuals (Album)', year: 2019, img: 'img/rel-small-group-of-individuals.jpg', url: 'https://open.spotify.com/album/5QQRlQ7JnXy6c7HNDWVibk' },
       { title: 'Ciaran Lavery - Count to Ten (CUT_ Remix)', img: 'img/rel-ciaran-lavery.jpg', url: 'https://open.spotify.com/track/5BsIrgVz9luIhJffCLkXfc' },
       { title: 'Rina Mushonga - Cassiopeia', img: 'img/rel-cassiopeia.jpg', url: 'https://open.spotify.com/track/50MJKQk7ysuXS4HWsSxJZk' },
       { title: 'CUT_ - Blind = Bliss EP', img: 'img/rel-blind-bliss.jpg', url: 'https://open.spotify.com/album/1TtLXuYCUTwrfvi9t4KmJg' },

@@ -103,9 +103,19 @@
     </article>`).join('');
   renderList('stage', SITE.stage.items.filter(i => !i.featured), card, SITE.stage.show);
 
-  $('[data-brands]').innerHTML = SITE.commercials.brands.map(g => `
-    <div class="brand-group"><p class="brand-label">${g.label}</p><ul>${g.names.map(n => `<li>${n}</li>`).join('')}</ul></div>`).join('');
-  renderList('commercials', SITE.commercials.items, v => ytCard(v), SITE.commercials.show);
+  const C = SITE.commercials;
+  $('[data-brands]').innerHTML = C.featured.map(c => `
+    <li>${c.logo ? `<img class="${c.wide ? 'wide' : ''}" src="${c.logo}" alt="${c.client}" loading="lazy">` : `<span class="brand-name">${c.client}</span>`}
+      <span class="brand-work">${c.work}</span></li>`).join('');
+  $('[data-clients]').innerHTML = C.all.map(c => `
+    <li><strong>${c.url ? `<a href="${c.url}" target="_blank" rel="noopener">${c.client}</a>` : c.client}</strong><em>${c.work}</em></li>`).join('');
+  const cbtn = $('[data-clients-toggle]'), clist = $('[data-clients]');
+  cbtn.addEventListener('click', () => {
+    const open = clist.hidden; clist.hidden = !open;
+    cbtn.textContent = open ? 'Hide client list' : `All ${C.all.length} clients`;
+    cbtn.setAttribute('aria-expanded', open);
+  });
+  cbtn.textContent = `All ${C.all.length} clients`;
 
   const disc = SITE.discography.items;
   $('[data-featured]').innerHTML = disc.filter(r => r.featured).map(r => cover(r, true)).join('');
