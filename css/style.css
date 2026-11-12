@@ -1,3 +1,4 @@
+@font-face { font-family: 'Schibsted Grotesk'; font-style: normal; font-weight: 400 700; font-display: swap; src: url(../assets/fonts/schibsted-grotesk.woff2) format('woff2'); }
 :root {
   --bg: #0e0606;
   --bg-2: #160b0c;
@@ -5,13 +6,15 @@
   --muted: #a39894;
   --line: rgba(236, 230, 227, .14);
   --accent: #c9a4ff;
-  --mono: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, monospace;
-  --display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --mono: 'Schibsted Grotesk', system-ui, sans-serif;
+  --display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --r: 16px;      /* afgeronde hoeken: kaarten, beeld, video */
+  --r-btn: 10px;  /* knoppen */
   --max: 1180px;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 400 15px/1.75 var(--mono); letter-spacing: .02em; -webkit-font-smoothing: antialiased; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.7 var(--mono); letter-spacing: 0; -webkit-font-smoothing: antialiased; }
 img { display: block; max-width: 100%; }
 a { color: inherit; }
 ::selection { background: var(--accent); color: #000; }
@@ -241,3 +244,14 @@ a.card .card-media > img { cursor: pointer; }
 .reel .button { margin-top: 30px; }
 @media (max-width: 760px) { .proof { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .reel { margin-top: -60px; } }
+
+/* Schibsted Grotesk: breder dan de oude condensed letter, dus koppen iets strakker */
+.hero h1 { font-weight: 400; font-size: clamp(38px, 6.4vw, 88px); letter-spacing: -.01em; }
+.section h2 { font-weight: 400; letter-spacing: -.005em; }
+h3, .text-art span, .hl-big { font-weight: 400; letter-spacing: 0; }
+
+/* Afgeronde hoeken */
+.poster img, .dposter img, .release img, .portrait, .yt, .reel-video .yt, .hl, .lightbox img { border-radius: var(--r); }
+.card, .feature, .proof { border-radius: var(--r); overflow: hidden; }
+.card-media .yt { border-radius: 0; }
+.button, .more { border-radius: var(--r-btn); }
