@@ -16,7 +16,7 @@ jobs:
           [ -f img/_fetch.txt ] || exit 0
           while read -r name url; do
             [ -z "$name" ] && continue
-            echo "↓ $name"; curl -sSfL "$url" -o "img/$name" || curl -sSfL "${url/maxresdefault/hqdefault}" -o "img/$name"
+            echo "↓ $name"; curl -sSfL "$url" -o "img/$name" || curl -sSfL "${url/maxresdefault/hqdefault}" -o "img/$name" || echo "  overgeslagen: $name"
           done < img/_fetch.txt
           git rm -q img/_fetch.txt
           git config user.name "github-actions"
