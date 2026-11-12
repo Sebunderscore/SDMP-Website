@@ -3,69 +3,68 @@
   hero 900 tall; h1 72px/1.02, 3 lines, 519x207 at 80,120; lead 20/30, 4 lines, 519 wide; buttons 2 x 44; visual 628x716 at 732,120
   stress: split h1 at 45 of 45 characters takes 4 lines, hero 900 tall
   section section.hero.hero--split section.hero.hero--split "Film and  y     0  h   900  content 716
-  section #reel section.section "Showreel. Film, stage and brand "     y   900  h   900  content 602
+  section #reel section.section "Showreel. Film, stage and brand "     y   900  h   900  content 608
   section #film section.section "Scores and songs for film and se"     y  1800  h   900  content 582
   section #stage section.section.is-live "Live scores for dance and th y  2700  h  1800  content 1800
   section #dance section.section "Music for Nederlands Dans Theate"    y  4500  h   900  content 708
-  section #studio section.section.statement "The studio I write on a m y  5400  h   900  content 241
+  section #studio section.section.statement "The studio I write on a m y  5400  h   900  content 301
   section #branding section.section.ground-surface "Sonic branding and y  6300  h   900  content 647
-  section #records section.section.ground-surface "Records. Four album y  7200  h   900  content 578
+  section #records section.section.ground-surface "Records. Four album y  7200  h   900  content 637
   section #about section.section "About Sebastiaan Since 2014 I ma"    y  8100  h   900  content 620
   hero-lines       section.hero h1: the check fills the h1 to 45 characters (this hero's maxChars in heroes.json), not the page's own: it takes 4 lines at 1440, 3 at most
 
 1024x768  lines x 80 and 944, nav 72px, one screen 768px
-  hero 768 tall; h1 59.3215px/1.02, 3 lines, 346x170 at 80,120; lead 18.8186/28.228, 5 lines, 346 wide; buttons 2 x 44; visual 420x584 at 524,120
+  hero 768 tall; h1 59.3215px/1.02, 3 lines, 346x171 at 80,120; lead 18.8186/28.228, 5 lines, 346 wide; buttons 2 x 44; visual 420x584 at 524,120
   stress: split h1 at 45 of 45 characters takes 4 lines, hero 768 tall
   section section.hero.hero--split section.hero.hero--split "Film and  y     0  h   768  content 584
-  section #reel section.section "Showreel. Film, stage and brand "     y   768  h   768  content 529
+  section #reel section.section "Showreel. Film, stage and brand "     y   768  h   768  content 535
   section #film section.section "Scores and songs for film and se"     y  1536  h   768  content 492
   section #stage section.section.is-live "Live scores for dance and th y  2304  h  1536  content 1536
-  section #dance section.section "Music for Nederlands Dans Theate"    y  3840  h   768  content 611
-  section #studio section.section.statement "The studio I write on a m y  4608  h   768  content 208
+  section #dance section.section "Music for Nederlands Dans Theate"    y  3840  h   768  content 656
+  section #studio section.section.statement "The studio I write on a m y  4608  h   768  content 212
   section #branding section.section.ground-surface "Sonic branding and y  5376  h   853  content 661
-  section #records section.section.ground-surface "Records. Four album y  6229  h   768  content 475
+  section #records section.section.ground-surface "Records. Four album y  6229  h   768  content 481
   section #about section.section "About Sebastiaan Since 2014 I ma"    y  6997  h   768  content 576
   no findings
 
 820x1180  lines x 48 and 772, nav 72px, one screen 1180px
-  hero 1180 tall; h1 53.1036px/1.02, 2 lines, 724x98 at 48,120; lead 18.2352/27.3528, 4 lines, 483 wide; buttons 2 x 44; visual 724x641 at 48,475
+  hero 1180 tall; h1 53.1036px/1.02, 2 lines, 724x99 at 48,120; lead 18.2352/27.3528, 3 lines, 526 wide; buttons 2 x 44; visual 724x667 at 48,449
   stress: split h1 at 45 of 45 characters takes 2 lines, hero 1180 tall
   section section.hero.hero--split section.hero.hero--split "Film and  y     0  h  1180  content 996
-  section #reel section.section "Showreel. Film, stage and brand "     y  1180  h  1180  content 564
-  section #film section.section "Scores and songs for film and se"     y  2360  h  1330  content 1138
-  section #stage section.section "Live scores for dance and theatr"    y  3690  h  1216  content 1024
-  section #dance section.section "Music for Nederlands Dans Theate"    y  4905  h  1180  content 988
-  section #studio section.section.statement "The studio I write on a m y  6085  h  1180  content 235
-  section #branding section.section.ground-surface "Sonic branding and y  7265  h  1327  content 1135
-  section #records section.section.ground-surface "Records. Four album y  8593  h  1180  content 421
-  section #about section.section "About Sebastiaan Since 2014 I ma"    y  9773  h  1180  content 811
-  sparse           #reel section.section "Showreel. Film, stage and brand ": its content fills 48% of its screen; merge it or give it its visual (0.55 is the aim)
-  sparse           #records section.section.ground-surface "Records. Four albums as CUT_,: its content fills 36% of its screen; merge it or give it its visual (0.55 is the aim)
+  section #reel section.section "Showreel. Film, stage and brand "     y  1180  h  1180  content 928
+  section #film section.section "Scores and songs for film and se"     y  2360  h  1303  content 1111
+  section #stage section.section "Live scores for dance and theatr"    y  3663  h  1216  content 1024
+  section #dance section.section "Music for Nederlands Dans Theate"    y  4878  h  1180  content 988
+  section #studio section.section.statement "The studio I write on a m y  6058  h  1180  content 239
+  section #branding section.section.ground-surface "Sonic branding and y  7238  h  1327  content 1135
+  section #records section.section.ground-surface "Records. Four album y  8566  h  1180  content 730
+  section #about section.section "About Sebastiaan Since 2014 I ma"    y  9746  h  1180  content 811
+  no findings
 
 768x1024  lines x 48 and 720, nav 72px, one screen 1024px
-  hero 1024 tall; h1 51.5186px/1.02, 2 lines, 672x96 at 48,120; lead 18.0865/27.1297, 4 lines, 479 wide; buttons 2 x 44; visual 672x488 at 48,472
+  hero 1024 tall; h1 51.5186px/1.02, 2 lines, 672x96 at 48,120; lead 18.0865/27.1297, 3 lines, 522 wide; buttons 2 x 44; visual 672x515 at 48,445
   stress: split h1 at 45 of 45 characters takes 2 lines, hero 1024 tall
   section section.hero.hero--split section.hero.hero--split "Film and  y     0  h  1024  content 840
-  section #reel section.section "Showreel. Film, stage and brand "     y  1024  h  1024  content 575
-  section #film section.section "Scores and songs for film and se"     y  2048  h  1270  content 1078
-  section #stage section.section "Live scores for dance and theatr"    y  3318  h  1156  content 964
-  section #dance section.section "Music for Nederlands Dans Theate"    y  4474  h  1024  content 832
-  section #studio section.section.statement "The studio I write on a m y  5498  h  1024  content 230
-  section #branding section.section.ground-surface "Sonic branding and y  6522  h  1287  content 1095
-  section #records section.section.ground-surface "Records. Four album y  7810  h  1024  content 403
-  section #about section.section "About Sebastiaan Since 2014 I ma"    y  8834  h  1024  content 771
-  sparse           #records section.section.ground-surface "Records. Four albums as CUT_,: its content fills 39% of its screen; merge it or give it its visual (0.55 is the aim)
+  section #reel section.section "Showreel. Film, stage and brand "     y  1024  h  1060  content 873
+  section #film section.section "Scores and songs for film and se"     y  2084  h  1270  content 1078
+  section #stage section.section "Live scores for dance and theatr"    y  3355  h  1156  content 964
+  section #dance section.section "Music for Nederlands Dans Theate"    y  4511  h  1024  content 832
+  section #studio section.section.statement "The studio I write on a m y  5535  h  1024  content 234
+  section #branding section.section.ground-surface "Sonic branding and y  6559  h  1287  content 1095
+  section #records section.section.ground-surface "Records. Four album y  7846  h  1024  content 688
+  section #about section.section "About Sebastiaan Since 2014 I ma"    y  8870  h  1024  content 771
+  no findings
 
 390x844  lines x 24 and 366, nav 56px, one screen 844px
-  hero 844 tall; h1 40px/1.02, 3 lines, 342x116 at 24,96; lead 17.0054/25.5081, 5 lines, 342 wide; buttons 2 x 44; visual 342x281 at 24,539
+  hero 844 tall; h1 40px/1.02, 3 lines, 342x115 at 24,96; lead 17.0054/25.5081, 5 lines, 342 wide; buttons 2 x 44; visual 342x281 at 24,539
   stress: split h1 at 45 of 45 characters takes 3 lines, hero 844 tall
   section section.hero.hero--split section.hero.hero--split "Film and  y     0  h   844  content 724
-  section #reel section.section "Showreel. Film, stage and brand "     y   844  h   844  content 594
+  section #reel section.section "Showreel. Film, stage and brand "     y   844  h   844  content 598
   section #film section.section "Scores and songs for film and se"     y  1688  h  1023  content 815
   section #stage section.section "Live scores for dance and theatr"    y  2711  h  1277  content 1069
   section #dance section.section "Music for Nederlands Dans Theate"    y  3987  h  1688  content 1480
-  section #studio section.section.statement "The studio I write on a m y  5675  h   844  content 297
-  section #branding section.section.ground-surface "Sonic branding and y  6519  h  1113  content 905
-  section #records section.section.ground-surface "Records. Four album y  7633  h  1688  content 1401
-  section #about section.section "About Sebastiaan Since 2014 I ma"    y  9321  h   975  content 767
+  section #studio section.section.statement "The studio I write on a m y  5675  h   844  content 299
+  section #branding section.section.ground-surface "Sonic branding and y  6519  h  1089  content 881
+  section #records section.section.ground-surface "Records. Four album y  7608  h  1688  content 1405
+  section #about section.section "About Sebastiaan Since 2014 I ma"    y  9296  h   844  content 596
   neighbour        #stage section.section "Live scores for dance and theatr": framed, 81px of #dance section.section "Music for Nederlands Dans Theate" shows

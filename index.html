@@ -15,9 +15,13 @@
 <!-- <link rel="canonical" href="https://sdmp.studio/"> once the domain points here -->
 <meta name="site-kind" content="other">
 <meta name="page-type" content="service">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Libre+Franklin:wght@400..600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/source-serif-4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/libre-franklin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* the dealt pairing, served from this site (latin subset of the Google Fonts files) */
+@font-face { font-family: "Source Serif 4"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(assets/fonts/source-serif-4.woff2) format("woff2"); }
+@font-face { font-family: "Libre Franklin"; font-style: normal; font-weight: 400 600; font-display: swap; src: url(assets/fonts/libre-franklin.woff2) format("woff2"); }
+</style>
 <link rel="stylesheet" href="assets/system.css">
 <link rel="stylesheet" href="assets/ui/cards.css">
 <link rel="stylesheet" href="assets/motion/motion.css">
@@ -44,6 +48,7 @@
   #reel .reel__poster > img { transition: transform 600ms var(--ease); }
   @media (hover: hover) and (pointer: fine) { #reel .reel__poster:hover > img { transform: scale(1.02); } }
   @media (max-width: 1023px) { #reel .reel__frame { height: auto; aspect-ratio: 16 / 9; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #reel .reel__frame { aspect-ratio: 1 / 1; } }
   @media (max-width: 639px) { #reel .reel__frame { aspect-ratio: 4 / 5; } }
   #branding .branding__photo { display: block; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; }
   #dance .dance__frame { background: var(--surface); }
@@ -54,11 +59,11 @@
   #records .wall img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
   @media (hover: hover) and (pointer: fine) { #records .wall a:hover img { transform: scale(1.03); } }
   @media (min-width: 640px) { #records .wall > a:nth-child(n+13) { display: none; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #records .wall { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
   @media (max-width: 639px) { #records .wall { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   #about .about__photo { position: relative; overflow: hidden; border-radius: var(--r-lg); height: min(620px, var(--ly-fit, 620px)); }
   #about .about__photo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
   @media (max-width: 1023px) { #about .about__photo { height: auto; aspect-ratio: 4 / 3; margin-top: var(--s-7); } }
-  @media (max-width: 639px) { #about .about__photo { aspect-ratio: 4 / 5; } }
 </style>
 <script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
 <script src="assets/backgrounds/backgrounds.js"></script>
@@ -152,7 +157,7 @@
     </div>
   </section>
 
-  <section class="section" id="stage" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="stage-h">
+  <section class="section" id="stage" style="--h: 2; --hm: 2" data-moment="pinned-chapters" aria-labelledby="stage-h">
     <div class="wrap mo-pc__grid">
       <div class="mo-pc__text">
         <h2 id="stage-h">Live scores for dance and theatre</h2>
